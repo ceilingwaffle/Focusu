@@ -6,6 +6,8 @@
     <Application.Resources>
 
         <Color x:Key="ElementTitleColor">White</Color>
+        <Thickness x:Key="GroupBoxMargin">10</Thickness>
+        <SolidColorBrush x:Key="ElementColor" Color="White"/>
 
     </Application.Resources>
 </Application>
