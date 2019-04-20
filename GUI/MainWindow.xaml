@@ -6,21 +6,27 @@
         xmlns:local="clr-namespace:Focusu"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Name="FocusuWindow" x:Class="Focusu.MainWindow"
         mc:Ignorable="d"
-        Title="Focusu!" Width="795.233" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        Title="Focusu!" ScrollViewer.VerticalScrollBarVisibility="Disabled" Height="562" Width="583" Background="{DynamicResource WindowBackgroundColor}">
     <Window.Resources>
         <System:Double x:Key="ButtonWidth">100</System:Double>
         <Thickness x:Key="HorizontalElementMargin">0,0,10,0</Thickness>
     </Window.Resources>
-    <StackPanel Orientation="Vertical" Background="#FF404040" Margin="0">
-        <GroupBox x:Name="GroupBox_BlankedStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Header="Monitor Status" Margin="10,10,0,10">
-            <GroupBox.Foreground>
-                <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
-            </GroupBox.Foreground>
-            <StackPanel Orientation="Vertical" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Label x:Name="Label_BlankedStatus" Content="Visible/Hidden" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource HiddenColor}" />
-                <Label x:Name="Label_StatusReason" Content="(Unknown)" Background="{x:Null}" FontSize="12" Foreground="{DynamicResource ElementColor}" HorizontalAlignment="Center" />
+    <StackPanel Orientation="Vertical" Background="{DynamicResource WindowBackgroundColor}" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <StackPanel Orientation="Horizontal">
+            <GroupBox x:Name="GroupBox_BlankedStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Header="Monitor Status" Margin="10,10,0,10">
+                <GroupBox.Foreground>
+                    <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
+                </GroupBox.Foreground>
+                <StackPanel Orientation="Vertical" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Label x:Name="Label_BlankedStatus" Content="Visible/Hidden" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource HiddenColor}" />
+                    <Label x:Name="Label_StatusReason" Content="(Unknown)" Background="{x:Null}" FontSize="12" Foreground="{DynamicResource ElementColor}" HorizontalAlignment="Center" />
+                </StackPanel>
+            </GroupBox>
+            <StackPanel Orientation="Horizontal" Margin="{DynamicResource GroupBoxMargin}">
+                <Image Height="100" Source="resources/images/small/Monitor_white.png" Margin="{DynamicResource HorizontalElementMargin}" />
+                <Image Height="100" Source="resources/images/small/Monitor_black.png" Margin="{DynamicResource HorizontalElementMargin}" />
             </StackPanel>
-        </GroupBox>
+        </StackPanel>
         <GroupBox x:Name="GroupBox_ScreenBlankingBehaviour" HorizontalAlignment="Left" VerticalAlignment="Top" Header="Screen Blanking Behaviour" Margin="10,10,0,10">
             <GroupBox.Foreground>
                 <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>

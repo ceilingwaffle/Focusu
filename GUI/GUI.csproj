@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>resources\focusu_icon_w1ll_v1.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -96,6 +99,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\focusu_icon_w1ll_v1.ico" />
+    <Resource Include="resources\images\Monitor_black.png" />
+    <Content Include="resources\images\Monitor_black.svg" />
+    <Resource Include="resources\images\Monitor_white.png" />
+    <Content Include="resources\images\Monitor_white.svg" />
+    <Resource Include="resources\images\small\Monitor_black.png" />
+    <Resource Include="resources\images\small\Monitor_white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,6 +14,7 @@
         <Thickness x:Key="VerticalElementMargin">0,0,0,10</Thickness>
 
         <System:Double x:Key="CheckboxHeight">23</System:Double>
+        <SolidColorBrush x:Key="WindowBackgroundColor" Color="#FF404040"/>
 
     </Application.Resources>
 </Application>
