@@ -1,0 +1,30 @@
+﻿<Window x:Class="Focusu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Focusu"
+        mc:Ignorable="d"
+        Title="Focusu!" Height="450" Width="800">
+    <Grid Background="#FF404040">
+        <GroupBox x:Name="Fade_Time" Header="Fade Time" HorizontalAlignment="Left" Height="63" Margin="397,198,0,0" VerticalAlignment="Top" Width="278">
+            <GroupBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
+            </GroupBox.Foreground>
+        </GroupBox>
+        <Button x:Name="AppState_Button_Manual" Content="Manual" HorizontalAlignment="Left" Margin="48,97,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="AppState_Button_Automatic" Content="Automatic" HorizontalAlignment="Left" Margin="397,112,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="AppState_Button_Enable" Content="Enable" HorizontalAlignment="Left" Margin="69,161,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="AppState_Button_Disable" Content="Disable" HorizontalAlignment="Left" Margin="172,161,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.409,0.456"/>
+        <Slider x:Name="AppState_Slider_FadeTiming" HorizontalAlignment="Left" Margin="410,223,0,0" VerticalAlignment="Top" Height="30" Width="168" ValueChanged="AppState_Slider_FadeTiming_ValueChanged" Value="0" Minimum="0" Maximum="5000" >
+            <Slider.BindingGroup>
+                <BindingGroup/>
+            </Slider.BindingGroup>
+        </Slider>
+        <Label x:Name="Label_FadeTiming" Content="0.0 seconds" HorizontalAlignment="Left" Margin="578,223,0,0" VerticalAlignment="Top" Background="{x:Null}">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
+            </Label.Foreground>
+        </Label>
+    </Grid>
+</Window>
