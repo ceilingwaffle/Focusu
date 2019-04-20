@@ -95,5 +95,15 @@ namespace Focusu
                 this.AppState_TextBox_MaxPP.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
             }
         }
+
+        private void AppState_RadioButton_Enable_Checked(object sender, RoutedEventArgs e)
+        {
+            // TODO: Enable the screen blanker
+        }
+
+        private void AppState_RadioButton_Disable_Checked(object sender, RoutedEventArgs e)
+        {
+            // TODO: Disable the screen blanker
+        }
     }
 }
