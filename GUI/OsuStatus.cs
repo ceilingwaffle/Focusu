@@ -5,7 +5,7 @@
     /// <summary>
     /// Osu Memory Status (copied from OsuMemoryDataProvider.OsuMemoryStatus)
     /// </summary>
-    internal enum OsuStatus 
+    public enum OsuStatus 
     {
         NotRunning = -1,
         MainMenu = 0,

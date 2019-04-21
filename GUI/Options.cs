@@ -1,25 +1,78 @@
 ﻿namespace GUI
 {
     using System;
+    using System.ComponentModel;
 
-    /// <summary>
-    /// The options for Focuso! screen-blanking behaviour
-    /// </summary>
-    internal static class Options
+    public class Options : INotifyPropertyChanged
     {
-        /// <summary>
-        /// Gets or sets the fade timing.
-        /// </summary>
-        public static TimeSpan FadeTiming { get; set; }
+        private TimeSpan fadeTiming = TimeSpan.FromMilliseconds(0);
+        private OsuStatus osuStatus = OsuStatus.NotRunning;
+        private MonitorStatus monitorStatus = MonitorStatus.Unblanked;
+        private bool manualControl = true;
 
-        /// <summary>
-        /// Gets or sets the osu! status.
-        /// </summary>
-        public static OsuStatus OsuStatus { get; set; }
+        public TimeSpan FadeTiming
+        {
+            get
+            {
+                return fadeTiming;
+            }
+            set
+            {
+                fadeTiming = value;
+                OnPropertyChanged("FadeTiming");
+            }
+        }
 
-        /// <summary>
-        /// Gets or sets the monitor "blanked/unblanked" status.
-        /// </summary>
-        public static MonitorStatus MonitorStatus { get; set; }
+        public OsuStatus OsuStatus
+        {
+            get
+            {
+                return osuStatus;
+            }
+            set
+            {
+                osuStatus = value;
+                OnPropertyChanged("OsuStatus");
+            }
+        }
+
+        public MonitorStatus MonitorStatus
+        {
+            get
+            {
+                return monitorStatus;
+            }
+            set
+            {
+                monitorStatus = value;
+                OnPropertyChanged("MonitorStatus");
+            }
+        }
+
+        public bool ManualControl
+        {
+            get
+            {
+                return manualControl;
+            }
+            set
+            {
+                manualControl = value;
+                OnPropertyChanged("ManualControl");
+            }
+        }
+
+
+        public Options()
+        {
+
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
     }
 }

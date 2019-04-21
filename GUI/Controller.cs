@@ -21,7 +21,7 @@
 
         public void HandleFadeTimingChanged(double ms)
         {
-            Options.FadeTiming = TimeSpan.FromMilliseconds(ms);
+            //Options.FadeTiming = TimeSpan.FromMilliseconds(ms);
         }
     }
 }

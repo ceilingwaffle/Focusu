@@ -12,8 +12,8 @@
         <System:Double x:Key="ButtonWidth">100</System:Double>
         <Thickness x:Key="HorizontalElementMargin">0,0,10,0</Thickness>
         <Thickness x:Key="MonitorStatusMargin">0,0,10,0</Thickness>
-        <BitmapImage x:Key="BlankedMonitor" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\C\focusu\GUI\resources\images\small\Monitor_black.png"/>
-        <BitmapImage x:Key="UnblankedMonitor" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\C\focusu\GUI\resources\images\small\Monitor_white.png"/>
+        <BitmapImage x:Key="BlankedMonitor" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_black.png"/>
+        <BitmapImage x:Key="UnblankedMonitor" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_white.png"/>
     </Window.Resources>
     <StackPanel Orientation="Vertical" Background="{DynamicResource WindowBackgroundColor}" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
         <StackPanel Orientation="Horizontal">
