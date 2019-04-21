@@ -1,11 +1,9 @@
-﻿namespace Focusu
+﻿namespace GUI
 {
     using System;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
-
-    using GUI;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml

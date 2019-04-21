@@ -11,11 +11,12 @@
     /// </summary>
     public class Controller : DependencyObject
     {
-        protected OsuStatePresenter osuStatePresenter = new OsuStatePresenter();
+        protected OsuPresenter osuStatePresenter;
 
         public Controller()
         {
-
+            osuStatePresenter = new OsuPresenter();
+            osuStatePresenter.Start();
         }
 
         public void HandleFadeTimingChanged(double ms)

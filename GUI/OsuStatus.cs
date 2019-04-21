@@ -1,9 +1,9 @@
 ﻿namespace GUI
 {
-    using OsuMemoryDataProvider;
+    //using OsuMemoryDataProvider;
 
     /// <summary>
-    /// Osu Memory Status (copied from <see cref="OsuMemoryDataProvider.OsuMemoryStatus"/>)
+    /// Osu Memory Status (copied from OsuMemoryDataProvider.OsuMemoryStatus)
     /// </summary>
     internal enum OsuStatus 
     {
@@ -28,7 +28,7 @@
         Tourney = 22,
 
         /// <summary>
-        /// Indicates that status read in osu memory is not defined in <see cref="OsuMemoryStatus"/>
+        /// Indicates that status read in osu memory is not defined in OsuMemoryStatus
         /// </summary>
         Unknown = -2,
     }
