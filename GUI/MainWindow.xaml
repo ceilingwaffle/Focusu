@@ -16,36 +16,48 @@
     </Window.Resources>
     <StackPanel Orientation="Vertical" Background="{DynamicResource WindowBackgroundColor}" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
         <StackPanel Orientation="Horizontal">
-            <GroupBox x:Name="GroupBox_BlankedStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Header="Monitor Status" Margin="10,10,0,10">
+            <GroupBox x:Name="GroupBox_OsuStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Header="osu! Status" Margin="10,10,0,10">
                 <GroupBox.Foreground>
                     <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
                 </GroupBox.Foreground>
                 <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Top">
-                    <Label x:Name="Label_BlankedStatus_Blanked" HorizontalAlignment="Center" Content="Blanked" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource HiddenColor}" />
-                    <Label x:Name="Label_BlankedStatus_Unblanked" HorizontalAlignment="Center" Content="Unblanked" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource VisibleColor}" />
-                    <Label x:Name="Label_StatusReason" HorizontalAlignment="Center" Content="(Reason Unknown)" Background="{x:Null}" FontSize="12" Foreground="{DynamicResource ElementColor}" />
+                    <Label x:Name="Label_OsuStatus_1" HorizontalAlignment="Center" Content="Paused" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource VisibleColor}" />
                 </StackPanel>
             </GroupBox>
-            <StackPanel Orientation="Horizontal" Margin="{DynamicResource GroupBoxMargin}">
-                <Grid>
-                    <!--<Image Height="80" Source="resources/images/small/visible.png" VerticalAlignment="Top" Panel.ZIndex="1" Margin="{DynamicResource HorizontalElementMargin}" />-->
-                    <Border MouseLeftButtonUp="Monitor_OnMouseLeftButtonUp">
+            <GroupBox x:Name="GroupBox_BlankedStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Header="Monitor Status" Margin="10,10,0,10">
+                <GroupBox.Foreground>
+                    <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
+                </GroupBox.Foreground>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" MinWidth="160">
+                        <Label x:Name="Label_BlankedStatus_Blanked" HorizontalAlignment="Center" Content="Blanked" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource HiddenColor}" />
+                        <Label x:Name="Label_BlankedStatus_Unblanked" HorizontalAlignment="Center" Content="Unblanked" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource VisibleColor}" />
+                        <Label x:Name="Label_StatusReason" HorizontalAlignment="Center" Content="(Reason Unknown)" Background="{x:Null}" FontSize="12" Foreground="{DynamicResource ElementColor}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="{DynamicResource GroupBoxMargin}">
                         <Grid>
-                            <Label x:Name="Label_BlankedStatus_Monitor_0" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="2" Margin="{DynamicResource MonitorStatusMargin}" Foreground="{DynamicResource ElementColor}">Enabled</Label>
-                            <Image x:Name="Image_BlankedStatus_Monitor_0" Height="100" Source="{DynamicResource UnblankedMonitor}" Panel.ZIndex="0" Margin="{DynamicResource HorizontalElementMargin}"  />
+                            <!--<Image Height="80" Source="resources/images/small/visible.png" VerticalAlignment="Top" Panel.ZIndex="1" Margin="{DynamicResource HorizontalElementMargin}" />-->
+                            <Border MouseLeftButtonUp="Monitor_OnMouseLeftButtonUp">
+                                <StackPanel>
+                                    <Label x:Name="Label_BlankedStatus_Monitor_0" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="2" Margin="{DynamicResource MonitorStatusMargin}" Foreground="{DynamicResource ElementColor}">Enabled</Label>
+                                    <Image x:Name="Image_BlankedStatus_Monitor_0" VerticalAlignment="Bottom"  Height="100" Source="{DynamicResource UnblankedMonitor}" Panel.ZIndex="0" Margin="{DynamicResource HorizontalElementMargin}"  />
+                                </StackPanel>
+                            </Border>
                         </Grid>
-                    </Border>
-                </Grid>
-                <Grid>
-                    <!--<Image Height="80" Source="resources/images/small/hidden.png" VerticalAlignment="Top" Panel.ZIndex="1" Margin="{DynamicResource HorizontalElementMargin}" />-->
-                    <Border MouseLeftButtonUp="Monitor_OnMouseLeftButtonUp">
                         <Grid>
-                            <Label x:Name="Label_BlankedStatus_Monitor_1" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="2" Margin="{DynamicResource MonitorStatusMargin}" Foreground="{DynamicResource ElementColor}">Enabled</Label>
-                            <Image x:Name="Image_BlankedStatus_Monitor_1" Height="100" Source="{DynamicResource BlankedMonitor}" Panel.ZIndex="0" Margin="{DynamicResource HorizontalElementMargin}"  />
+                            <!--<Image Height="80" Source="resources/images/small/hidden.png" VerticalAlignment="Top" Panel.ZIndex="1" Margin="{DynamicResource HorizontalElementMargin}" />-->
+                            <Border MouseLeftButtonUp="Monitor_OnMouseLeftButtonUp">
+                                <StackPanel>
+                                    <Label x:Name="Label_BlankedStatus_Monitor_1" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="2" Margin="{DynamicResource MonitorStatusMargin}" Foreground="{DynamicResource ElementColor}">Enabled</Label>
+                                    <Image x:Name="Image_BlankedStatus_Monitor_1" Height="100" Source="{DynamicResource BlankedMonitor}" Panel.ZIndex="0" Margin="{DynamicResource HorizontalElementMargin}"  />
+                                </StackPanel>
+                            </Border>
                         </Grid>
-                    </Border>
-                </Grid>
-            </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            
+
         </StackPanel>
         <GroupBox x:Name="GroupBox_ScreenBlankingBehaviour" HorizontalAlignment="Left" VerticalAlignment="Top" Header="Screen Blanking Behaviour" Margin="10,10,0,10">
             <GroupBox.Foreground>

@@ -115,15 +115,16 @@ namespace Focusu
                 return;
             }
 
-            if (!(border.Child is Grid grid))
+            if (!(border.Child is StackPanel panel))
             {
                 return;
             }
 
-            foreach (object gridElement in grid.Children)
+            foreach (object panelElement in panel.Children)
             {
-                switch (gridElement)
+                switch (panelElement)
                 {
+                    // TODO: Get/Set opacity/enabled from a variable from the xaml, or somewhere else other than this code
                     case Image image:
                         image.Opacity = image.Opacity <= 0.5 ? 1.0 : 0.5;
                         break;
@@ -132,8 +133,6 @@ namespace Focusu
                         break;
                 }
             }
-
-
             // swap DynamicResource 
             //// image.Source = (ImageSource)this.FindResource("BlankedMonitor");
         }
