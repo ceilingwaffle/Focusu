@@ -7,13 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "submodules", "submodules", "{EF004CBC-C8BC-4DB6-A7AA-72D3063B75B1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OsuStatePresenter", "..\..\osu-state-presenter\OsuStatePresenter\OsuStatePresenter.csproj", "{7D1D9BA3-8300-4048-AA67-CA9FD91199FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OsuStatePresenter", "..\osu-state-presenter\OsuStatePresenter\OsuStatePresenter.csproj", "{7D1D9BA3-8300-4048-AA67-CA9FD91199FC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DVPF.Core", "..\..\dvpf\DVPF.Core\DVPF.Core.csproj", "{E9E5A94A-2912-4262-83DD-8DC8A72C435B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DVPF.Core", "..\dvpf\DVPF.Core\DVPF.Core.csproj", "{E9E5A94A-2912-4262-83DD-8DC8A72C435B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OsuMemoryDataProvider", "..\..\osu-state-presenter\submodules\Piotrekol\ProcessMemoryDataFinder\OsuMemoryDataProvider\OsuMemoryDataProvider.csproj", "{1BF3B169-E32D-46D4-9584-CB0F98E9F045}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OsuMemoryDataProvider", "..\osu-state-presenter\submodules\Piotrekol\ProcessMemoryDataFinder\OsuMemoryDataProvider\OsuMemoryDataProvider.csproj", "{1BF3B169-E32D-46D4-9584-CB0F98E9F045}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProcessMemoryDataFinder", "..\..\osu-state-presenter\submodules\Piotrekol\ProcessMemoryDataFinder\ProcessMemoryDataFinder\ProcessMemoryDataFinder.csproj", "{63104BB5-E7BC-4024-833E-9491D9B8959A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProcessMemoryDataFinder", "..\osu-state-presenter\submodules\Piotrekol\ProcessMemoryDataFinder\ProcessMemoryDataFinder\ProcessMemoryDataFinder.csproj", "{63104BB5-E7BC-4024-833E-9491D9B8959A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

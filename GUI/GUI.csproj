@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\dvpf\DVPF.Core\DVPF.Core.csproj" />
-    <ProjectReference Include="..\..\..\osu-state-presenter\OsuStatePresenter\OsuStatePresenter.csproj" />
-    <ProjectReference Include="..\..\..\osu-state-presenter\submodules\Piotrekol\ProcessMemoryDataFinder\OsuMemoryDataProvider\OsuMemoryDataProvider.csproj" />
-    <ProjectReference Include="..\..\..\osu-state-presenter\submodules\Piotrekol\ProcessMemoryDataFinder\ProcessMemoryDataFinder\ProcessMemoryDataFinder.csproj" />
+    <ProjectReference Include="..\..\dvpf\DVPF.Core\DVPF.Core.csproj" />
+    <ProjectReference Include="..\..\osu-state-presenter\OsuStatePresenter\OsuStatePresenter.csproj" />
+    <ProjectReference Include="..\..\osu-state-presenter\submodules\Piotrekol\ProcessMemoryDataFinder\OsuMemoryDataProvider\OsuMemoryDataProvider.csproj" />
+    <ProjectReference Include="..\..\osu-state-presenter\submodules\Piotrekol\ProcessMemoryDataFinder\ProcessMemoryDataFinder\ProcessMemoryDataFinder.csproj" />
   </ItemGroup>
 
 </Project>
