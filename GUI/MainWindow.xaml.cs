@@ -31,6 +31,7 @@ namespace Focusu
             InitializeComponent();
 
             AppState_RadioButton_Automatic.IsChecked = true;
+            this.AppState_RadioButton_Disable.IsChecked = true;
         }
 
         /// <summary>

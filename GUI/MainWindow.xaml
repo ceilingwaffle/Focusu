@@ -59,7 +59,7 @@
             
 
         </StackPanel>
-        <GroupBox x:Name="GroupBox_ScreenBlankingBehaviour" HorizontalAlignment="Left" VerticalAlignment="Top" Header="Screen Blanking Behaviour" Margin="10,10,0,10">
+        <GroupBox x:Name="GroupBox_ScreenBlankingBehaviour" HorizontalAlignment="Left" VerticalAlignment="Top" Header="Monitor Blanking Behaviour" Margin="10,10,0,10">
             <GroupBox.Foreground>
                 <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
             </GroupBox.Foreground>
@@ -73,8 +73,8 @@
                 <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
             </GroupBox.Foreground>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <RadioButton x:Name="AppState_RadioButton_Enable" Content="Enable" GroupName="ManualControls" Foreground="{DynamicResource ElementColor}" Margin="{DynamicResource HorizontalElementMargin}" Checked="AppState_RadioButton_Enable_Checked" />
-                <RadioButton x:Name="AppState_RadioButton_Disable" Content="Disable" GroupName="ManualControls" Foreground="{DynamicResource ElementColor}" Margin="{DynamicResource HorizontalElementMargin}" Checked="AppState_RadioButton_Disable_Checked" />
+                <RadioButton x:Name="AppState_RadioButton_Disable" Content="Always Show" GroupName="ManualControls" Foreground="{DynamicResource ElementColor}" Margin="{DynamicResource HorizontalElementMargin}" Checked="AppState_RadioButton_Disable_Checked" />
+                <RadioButton x:Name="AppState_RadioButton_Enable" Content="Always Blank" GroupName="ManualControls" Foreground="{DynamicResource ElementColor}" Margin="{DynamicResource HorizontalElementMargin}" Checked="AppState_RadioButton_Enable_Checked" />
             </StackPanel>
         </GroupBox>
         <GroupBox x:Name="GroupBox_AutomaticOptions" HorizontalAlignment="Left" VerticalAlignment="Top" Width="345" Header="Automatic Options" Margin="10,10,0,10" Visibility="Visible">
@@ -92,7 +92,7 @@
                                 <BindingGroup/>
                             </Slider.BindingGroup>
                         </Slider>
-                        <Label x:Name="Label_FadeTiming" Content="0.0 seconds" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Background="{x:Null}">
+                        <Label x:Name="Label_FadeTiming" Content="0.00 seconds" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Background="{x:Null}">
                             <Label.Foreground>
                                 <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
                             </Label.Foreground>
