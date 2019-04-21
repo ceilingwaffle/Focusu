@@ -1,30 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace Focusu
+﻿namespace Focusu
 {
-    using System.Text.RegularExpressions;
+    using System;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
 
-    using Button = System.Windows.Controls.Button;
+    using GUI;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private TimeSpan fadeTime = TimeSpan.FromMilliseconds(0);
+        private readonly Controller controller;
 
         public MainWindow()
         {
@@ -32,29 +20,17 @@ namespace Focusu
 
             AppState_RadioButton_Automatic.IsChecked = true;
             this.AppState_RadioButton_Disable.IsChecked = true;
-        }
 
-        /// <summary>
-        /// Returns true if the given string contains only numbers.
-        /// </summary>
-        /// <param name="text">
-        /// The text to check
-        /// </param>
-        /// <returns>
-        /// true if valid number
-        /// </returns>
-        private static bool IsValidNumberInput(string text)
-        {
-            var regex = new Regex("[0-9]+");
-            return regex.IsMatch(text);
+            this.controller = new Controller();
         }
 
         private void AppState_Slider_FadeTiming_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             double ms = e.NewValue;
-            this.fadeTime = TimeSpan.FromMilliseconds(ms);
             double seconds = e.NewValue / 1000;
             this.Label_FadeTiming.Content = $"{seconds:F2} seconds";
+
+            this.controller.HandleFadeTimingChanged(ms);
         }
 
         private void AppState_RadioButton_Manual_Checked(object sender, RoutedEventArgs e)
@@ -81,7 +57,7 @@ namespace Focusu
 
         private void AppState_TextBox_MaxPP_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = !IsValidNumberInput(e.Text);
+            e.Handled = !Helpers.IsValidNumberInput(e.Text);
         }
 
         private void AppState_TextBox_MaxPP_Pasting(object sender, DataObjectPastingEventArgs e)

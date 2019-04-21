@@ -4,15 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Focusu"
-        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Name="FocusuWindow" x:Class="Focusu.MainWindow"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:gui="clr-namespace:GUI"
+        x:Name="FocusuWindow" x:Class="Focusu.MainWindow"
         mc:Ignorable="d"
         Title="Focusu!" ScrollViewer.VerticalScrollBarVisibility="Disabled" Height="562" Width="583" Background="{DynamicResource WindowBackgroundColor}">
     <Window.Resources>
         <System:Double x:Key="ButtonWidth">100</System:Double>
         <Thickness x:Key="HorizontalElementMargin">0,0,10,0</Thickness>
         <Thickness x:Key="MonitorStatusMargin">0,0,10,0</Thickness>
-        <BitmapImage x:Key="BlankedMonitor" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_black.png"/>
-        <BitmapImage x:Key="UnblankedMonitor" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_white.png"/>
+        <BitmapImage x:Key="BlankedMonitor" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\C\focusu\GUI\resources\images\small\Monitor_black.png"/>
+        <BitmapImage x:Key="UnblankedMonitor" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\C\focusu\GUI\resources\images\small\Monitor_white.png"/>
     </Window.Resources>
     <StackPanel Orientation="Vertical" Background="{DynamicResource WindowBackgroundColor}" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
         <StackPanel Orientation="Horizontal">
@@ -30,8 +32,8 @@
                 </GroupBox.Foreground>
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" MinWidth="160">
-                        <Label x:Name="Label_BlankedStatus_Blanked" HorizontalAlignment="Center" Content="Blanked" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource HiddenColor}" />
-                        <Label x:Name="Label_BlankedStatus_Unblanked" HorizontalAlignment="Center" Content="Unblanked" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource VisibleColor}" />
+                        <Label x:Name="Label_BlankedStatus" HorizontalAlignment="Center" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource HiddenColor}" Content="Blanked" />
+                        <!--<Label x:Name="Label_BlankedStatus_Unblanked" HorizontalAlignment="Center" Content="Unblanked" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource VisibleColor}" />-->
                         <Label x:Name="Label_StatusReason" HorizontalAlignment="Center" Content="(Reason Unknown)" Background="{x:Null}" FontSize="12" Foreground="{DynamicResource ElementColor}" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="{DynamicResource GroupBoxMargin}">

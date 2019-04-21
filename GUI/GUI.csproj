@@ -66,12 +66,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controller.cs" />
+    <Compile Include="MonitorStatusElement.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MonitorStatus.cs" />
+    <Compile Include="MonitorStatusReason.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="OsuStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -98,6 +105,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Elements\" />
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +118,24 @@
     <Content Include="resources\images\Monitor_white.svg" />
     <Resource Include="resources\images\small\Monitor_black.png" />
     <Resource Include="resources\images\small\Monitor_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\dvpf\DVPF.Core\DVPF.Core.csproj">
+      <Project>{bc6660e0-3990-44fb-85e4-3c934262ee72}</Project>
+      <Name>DVPF.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\osu-state-presenter\OsuStatePresenter\OsuStatePresenter.csproj">
+      <Project>{b13ebdcf-ae0e-4759-94bc-160a4cf91797}</Project>
+      <Name>OsuStatePresenter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\osu-state-presenter\submodules\Piotrekol\ProcessMemoryDataFinder\OsuMemoryDataProvider\OsuMemoryDataProvider.csproj">
+      <Project>{fd24c650-f3ce-4e15-91c2-14e8af0a278e}</Project>
+      <Name>OsuMemoryDataProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\osu-state-presenter\submodules\Piotrekol\ProcessMemoryDataFinder\ProcessMemoryDataFinder\ProcessMemoryDataFinder.csproj">
+      <Project>{b06fde30-9ab3-4e94-8c77-3eb11bd018a0}</Project>
+      <Name>ProcessMemoryDataFinder</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
