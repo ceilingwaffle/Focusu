@@ -29,13 +29,21 @@
             <StackPanel Orientation="Horizontal" Margin="{DynamicResource GroupBoxMargin}">
                 <Grid>
                     <!--<Image Height="80" Source="resources/images/small/visible.png" VerticalAlignment="Top" Panel.ZIndex="1" Margin="{DynamicResource HorizontalElementMargin}" />-->
-                    <Image Height="100" Source="{DynamicResource UnblankedMonitor}" Panel.ZIndex="0" Margin="{DynamicResource HorizontalElementMargin}" />
-                    <Label VerticalAlignment="Bottom" HorizontalAlignment="Center" Panel.ZIndex="2" Margin="{DynamicResource MonitorStatusMargin}" Foreground="{DynamicResource ElementColor}">Enabled</Label>
+                    <Border MouseLeftButtonUp="Monitor_OnMouseLeftButtonUp">
+                        <Grid>
+                            <Label x:Name="Label_BlankedStatus_Monitor_0" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="2" Margin="{DynamicResource MonitorStatusMargin}" Foreground="{DynamicResource ElementColor}">Enabled</Label>
+                            <Image x:Name="Image_BlankedStatus_Monitor_0" Height="100" Source="{DynamicResource UnblankedMonitor}" Panel.ZIndex="0" Margin="{DynamicResource HorizontalElementMargin}"  />
+                        </Grid>
+                    </Border>
                 </Grid>
                 <Grid>
                     <!--<Image Height="80" Source="resources/images/small/hidden.png" VerticalAlignment="Top" Panel.ZIndex="1" Margin="{DynamicResource HorizontalElementMargin}" />-->
-                    <Image Height="100" Source="{DynamicResource BlankedMonitor}" Panel.ZIndex="0" Margin="{DynamicResource HorizontalElementMargin}" />
-                    <Label VerticalAlignment="Bottom" HorizontalAlignment="Center" Panel.ZIndex="2" Margin="{DynamicResource MonitorStatusMargin}" Foreground="{DynamicResource ElementColor}">Enabled</Label>
+                    <Border MouseLeftButtonUp="Monitor_OnMouseLeftButtonUp">
+                        <Grid>
+                            <Label x:Name="Label_BlankedStatus_Monitor_1" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="2" Margin="{DynamicResource MonitorStatusMargin}" Foreground="{DynamicResource ElementColor}">Enabled</Label>
+                            <Image x:Name="Image_BlankedStatus_Monitor_1" Height="100" Source="{DynamicResource BlankedMonitor}" Panel.ZIndex="0" Margin="{DynamicResource HorizontalElementMargin}"  />
+                        </Grid>
+                    </Border>
                 </Grid>
             </StackPanel>
         </StackPanel>

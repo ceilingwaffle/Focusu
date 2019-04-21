@@ -9,7 +9,7 @@
         <Color x:Key="ElementTitleColor">White</Color>
         <Thickness x:Key="GroupBoxMargin">10</Thickness>
         <SolidColorBrush x:Key="ElementColor" Color="White"/>
-        <SolidColorBrush x:Key="HiddenColor" Color="Cyan"/>
+        <SolidColorBrush x:Key="HiddenColor" Color="#FF490000"/>
         <SolidColorBrush x:Key="VisibleColor" Color="#FF2EFF00"/>
         <Thickness x:Key="VerticalElementMargin">0,0,0,10</Thickness>
 

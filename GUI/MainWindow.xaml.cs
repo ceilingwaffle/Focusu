@@ -17,6 +17,8 @@ namespace Focusu
 {
     using System.Text.RegularExpressions;
 
+    using Button = System.Windows.Controls.Button;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -104,6 +106,36 @@ namespace Focusu
         private void AppState_RadioButton_Disable_Checked(object sender, RoutedEventArgs e)
         {
             // TODO: Disable the screen blanker
+        }
+
+        private void Monitor_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is Border border))
+            {
+                return;
+            }
+
+            if (!(border.Child is Grid grid))
+            {
+                return;
+            }
+
+            foreach (object gridElement in grid.Children)
+            {
+                switch (gridElement)
+                {
+                    case Image image:
+                        image.Opacity = image.Opacity <= 0.5 ? 1.0 : 0.5;
+                        break;
+                    case Label label:
+                        label.Content = label.Content.ToString().Contains("Enabled") ? "Disabled" : "Enabled";
+                        break;
+                }
+            }
+
+
+            // swap DynamicResource 
+            //// image.Source = (ImageSource)this.FindResource("BlankedMonitor");
         }
     }
 }

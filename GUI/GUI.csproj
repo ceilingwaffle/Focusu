@@ -101,6 +101,8 @@
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="resources\images\small\hidden.png" />
+    <Resource Include="resources\images\small\visible.png" />
     <Resource Include="resources\focusu_icon_w1ll_v1.ico" />
     <Resource Include="resources\images\Monitor_black.png" />
     <Content Include="resources\images\Monitor_black.svg" />
