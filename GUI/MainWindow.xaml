@@ -5,52 +5,126 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         xmlns:System="clr-namespace:System;assembly=System.Runtime"
-        x:Name="FocusuWindow" 
+        x:Name="FocusuWindow"
         mc:Ignorable="d"
-        Title="Focusu!" ScrollViewer.VerticalScrollBarVisibility="Disabled" Height="562" Width="583" Background="{DynamicResource WindowBackgroundColor}">
+        Title="Focusu!"
+        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+        Height="562"
+        Width="583"
+        Background="{DynamicResource WindowBackgroundColor}">
     <Window.Resources>
         <System:Double x:Key="ButtonWidth">100</System:Double>
         <Thickness x:Key="HorizontalElementMargin">0,0,10,0</Thickness>
         <Thickness x:Key="MonitorStatusMargin">0,0,10,0</Thickness>
-        <BitmapImage x:Key="BlankedMonitor" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_black.png"/>
-        <BitmapImage x:Key="UnblankedMonitor" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_white.png"/>
+        <BitmapImage x:Key="BlankedMonitor"
+                     CreateOptions="IgnoreImageCache"
+                     CacheOption="OnLoad"
+                     UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_black.png" />
+        <BitmapImage x:Key="UnblankedMonitor"
+                     CreateOptions="IgnoreImageCache"
+                     CacheOption="OnLoad"
+                     UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_white.png" />
     </Window.Resources>
-    <StackPanel Orientation="Vertical" Background="{DynamicResource WindowBackgroundColor}" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+    <StackPanel Orientation="Vertical"
+                Background="{DynamicResource WindowBackgroundColor}"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top">
         <StackPanel Orientation="Horizontal">
-            <GroupBox x:Name="GroupBox_OsuStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Header="osu! Status" Margin="10,10,0,10">
+            <GroupBox x:Name="GroupBox_OsuStatus"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      Header="osu! Status"
+                      Margin="10,10,0,10">
                 <GroupBox.Foreground>
-                    <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
+                    <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
                 </GroupBox.Foreground>
-                <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Top">
-                    <Label x:Name="Label_OsuStatus_1" HorizontalAlignment="Center" Content="Paused" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource VisibleColor}" />
+                <StackPanel Orientation="Vertical"
+                            Margin="10"
+                            VerticalAlignment="Top">
+                    <Label x:Name="Label_OsuStatus_1"
+                           HorizontalAlignment="Center"
+                           Content="Paused"
+                           Background="{x:Null}"
+                           FontSize="24"
+                           Foreground="{DynamicResource VisibleColor}" />
                 </StackPanel>
             </GroupBox>
-            <GroupBox x:Name="GroupBox_BlankedStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Header="Monitor Status" Margin="10,10,0,10">
+            <GroupBox x:Name="GroupBox_BlankedStatus"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      Header="Monitor Status"
+                      Margin="10,10,0,10">
                 <GroupBox.Foreground>
-                    <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
+                    <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
                 </GroupBox.Foreground>
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" MinWidth="160">
-                        <Label x:Name="Label_BlankedStatus" HorizontalAlignment="Center" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource HiddenColor}" Content="Blanked" />
-                        <!--<Label x:Name="Label_BlankedStatus_Unblanked" HorizontalAlignment="Center" Content="Unblanked" Background="{x:Null}" FontSize="24" Foreground="{DynamicResource VisibleColor}" />-->
-                        <Label x:Name="Label_StatusReason" HorizontalAlignment="Center" Content="(Reason Unknown)" Background="{x:Null}" FontSize="12" Foreground="{DynamicResource ElementColor}" />
+                    <StackPanel Orientation="Vertical"
+                                VerticalAlignment="Center"
+                                MinWidth="160">
+                        <Label x:Name="Label_BlankedStatus"
+                               HorizontalAlignment="Center"
+                               Background="{x:Null}"
+                               FontSize="24"
+                               Foreground="{DynamicResource HiddenColor}"
+                               Content="Blanked" />
+                        <!--<Label x:Name="Label_BlankedStatus_Unblanked"
+                               HorizontalAlignment="Center"
+                               Content="Unblanked"
+                               Background="{x:Null}"
+                               FontSize="24"
+                               Foreground="{DynamicResource VisibleColor}" />-->
+                        <Label x:Name="Label_StatusReason"
+                               HorizontalAlignment="Center"
+                               Content="(Reason Unknown)"
+                               Background="{x:Null}"
+                               FontSize="12"
+                               Foreground="{DynamicResource ElementColor}" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="{DynamicResource GroupBoxMargin}">
+                    <StackPanel Orientation="Horizontal"
+                                Margin="{DynamicResource GroupBoxMargin}">
                         <Grid>
-                            <!--<Image Height="80" Source="resources/images/small/visible.png" VerticalAlignment="Top" Panel.ZIndex="1" Margin="{DynamicResource HorizontalElementMargin}" />-->
+                            <!--<Image Height="80"
+                                   Source="resources/images/small/visible.png"
+                                   VerticalAlignment="Top"
+                                   Panel.ZIndex="1"
+                                   Margin="{DynamicResource HorizontalElementMargin}" />-->
                             <Border MouseLeftButtonUp="Monitor_OnMouseLeftButtonUp">
                                 <StackPanel>
-                                    <Label x:Name="Label_BlankedStatus_Monitor_0" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="2" Margin="{DynamicResource MonitorStatusMargin}" Foreground="{DynamicResource ElementColor}">Enabled</Label>
-                                    <Image x:Name="Image_BlankedStatus_Monitor_0" VerticalAlignment="Bottom"  Height="100" Source="{DynamicResource UnblankedMonitor}" Panel.ZIndex="0" Margin="{DynamicResource HorizontalElementMargin}"  />
+                                    <Label x:Name="Label_BlankedStatus_Monitor_0"
+                                           VerticalAlignment="Top"
+                                           HorizontalAlignment="Center"
+                                           Panel.ZIndex="2"
+                                           Margin="{DynamicResource MonitorStatusMargin}"
+                                           Foreground="{DynamicResource ElementColor}">Enabled</Label>
+                                    <Image x:Name="Image_BlankedStatus_Monitor_0"
+                                           VerticalAlignment="Bottom"
+                                           Height="100"
+                                           Source="{DynamicResource UnblankedMonitor}"
+                                           Panel.ZIndex="0"
+                                           Margin="{DynamicResource HorizontalElementMargin}" />
                                 </StackPanel>
                             </Border>
                         </Grid>
                         <Grid>
-                            <!--<Image Height="80" Source="resources/images/small/hidden.png" VerticalAlignment="Top" Panel.ZIndex="1" Margin="{DynamicResource HorizontalElementMargin}" />-->
+                            <!--<Image Height="80"
+                                   Source="resources/images/small/hidden.png"
+                                   VerticalAlignment="Top"
+                                   Panel.ZIndex="1"
+                                   Margin="{DynamicResource HorizontalElementMargin}" />-->
                             <Border MouseLeftButtonUp="Monitor_OnMouseLeftButtonUp">
                                 <StackPanel>
-                                    <Label x:Name="Label_BlankedStatus_Monitor_1" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="2" Margin="{DynamicResource MonitorStatusMargin}" Foreground="{DynamicResource ElementColor}">Enabled</Label>
-                                    <Image x:Name="Image_BlankedStatus_Monitor_1" Height="100" Source="{DynamicResource BlankedMonitor}" Panel.ZIndex="0" Margin="{DynamicResource HorizontalElementMargin}"  />
+                                    <Label x:Name="Label_BlankedStatus_Monitor_1"
+                                           VerticalAlignment="Top"
+                                           HorizontalAlignment="Center"
+                                           Panel.ZIndex="2"
+                                           Margin="{DynamicResource MonitorStatusMargin}"
+                                           Foreground="{DynamicResource ElementColor}">Enabled</Label>
+                                    <Image x:Name="Image_BlankedStatus_Monitor_1"
+                                           Height="100"
+                                           Source="{DynamicResource BlankedMonitor}"
+                                           Panel.ZIndex="0"
+                                           Margin="{DynamicResource HorizontalElementMargin}" />
                                 </StackPanel>
                             </Border>
                         </Grid>
@@ -60,53 +134,142 @@
 
 
         </StackPanel>
-        <GroupBox x:Name="GroupBox_ScreenBlankingBehaviour" HorizontalAlignment="Left" VerticalAlignment="Top" Header="Monitor Blanking Behaviour" Margin="10,10,0,10">
+        <GroupBox x:Name="GroupBox_ScreenBlankingBehaviour"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Header="Monitor Blanking Behaviour"
+                  Margin="10,10,0,10">
             <GroupBox.Foreground>
-                <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
+                <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
             </GroupBox.Foreground>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <RadioButton x:Name="AppState_RadioButton_Automatic" Content="Automatic" GroupName="ScreenBlankingBehaviour" Foreground="{DynamicResource ElementColor}" Margin="{DynamicResource HorizontalElementMargin}" Checked="AppState_RadioButton_Automatic_Checked" />
-                <RadioButton x:Name="AppState_RadioButton_Manual" Content="Manual" GroupName="ScreenBlankingBehaviour" Foreground="{DynamicResource ElementColor}" Margin="{DynamicResource HorizontalElementMargin}" Checked="AppState_RadioButton_Manual_Checked" />
+            <StackPanel Orientation="Horizontal"
+                        Margin="10"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                <RadioButton x:Name="AppState_RadioButton_Automatic"
+                             Content="Automatic"
+                             GroupName="ScreenBlankingBehaviour"
+                             Foreground="{DynamicResource ElementColor}"
+                             Margin="{DynamicResource HorizontalElementMargin}"
+                             Checked="AppState_RadioButton_Automatic_Checked" />
+                <RadioButton x:Name="AppState_RadioButton_Manual"
+                             Content="Manual"
+                             GroupName="ScreenBlankingBehaviour"
+                             Foreground="{DynamicResource ElementColor}"
+                             Margin="{DynamicResource HorizontalElementMargin}"
+                             Checked="AppState_RadioButton_Manual_Checked" />
             </StackPanel>
         </GroupBox>
-        <GroupBox x:Name="GroupBox_ManualControls" HorizontalAlignment="Left" VerticalAlignment="Top" Header="Manual Control" Margin="{DynamicResource GroupBoxMargin}" Visibility="Visible">
+        <GroupBox x:Name="GroupBox_ManualControls"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Header="Manual Control"
+                  Margin="{DynamicResource GroupBoxMargin}"
+                  Visibility="Visible">
             <GroupBox.Foreground>
-                <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
+                <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
             </GroupBox.Foreground>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <RadioButton x:Name="AppState_RadioButton_Disable" Content="Always Show" GroupName="ManualControls" Foreground="{DynamicResource ElementColor}" Margin="{DynamicResource HorizontalElementMargin}" Checked="AppState_RadioButton_Disable_Checked" />
-                <RadioButton x:Name="AppState_RadioButton_Enable" Content="Always Blank" GroupName="ManualControls" Foreground="{DynamicResource ElementColor}" Margin="{DynamicResource HorizontalElementMargin}" Checked="AppState_RadioButton_Enable_Checked" />
+            <StackPanel Orientation="Horizontal"
+                        Margin="10"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                <RadioButton x:Name="AppState_RadioButton_Disable"
+                             Content="Always Show"
+                             GroupName="ManualControls"
+                             Foreground="{DynamicResource ElementColor}"
+                             Margin="{DynamicResource HorizontalElementMargin}"
+                             Checked="AppState_RadioButton_Disable_Checked" />
+                <RadioButton x:Name="AppState_RadioButton_Enable"
+                             Content="Always Blank"
+                             GroupName="ManualControls"
+                             Foreground="{DynamicResource ElementColor}"
+                             Margin="{DynamicResource HorizontalElementMargin}"
+                             Checked="AppState_RadioButton_Enable_Checked" />
             </StackPanel>
         </GroupBox>
-        <GroupBox x:Name="GroupBox_AutomaticOptions" HorizontalAlignment="Left" VerticalAlignment="Top" Width="345" Header="Automatic Options" Margin="10,10,0,10" Visibility="Visible">
+        <GroupBox x:Name="GroupBox_AutomaticOptions"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Width="345"
+                  Header="Automatic Options"
+                  Margin="10,10,0,10"
+                  Visibility="Visible">
             <GroupBox.Foreground>
-                <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
+                <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
             </GroupBox.Foreground>
-            <StackPanel Orientation="Vertical" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <GroupBox x:Name="Groupbox_FadeTime" Header="Fade In/Out Time" HorizontalAlignment="Left" Height="69" VerticalAlignment="Top" Width="307" Margin="{DynamicResource VerticalElementMargin}">
+            <StackPanel Orientation="Vertical"
+                        Margin="10"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                <GroupBox x:Name="Groupbox_FadeTime"
+                          Header="Fade In/Out Time"
+                          HorizontalAlignment="Left"
+                          Height="69"
+                          VerticalAlignment="Top"
+                          Width="307"
+                          Margin="{DynamicResource VerticalElementMargin}">
                     <GroupBox.Foreground>
-                        <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
+                        <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
                     </GroupBox.Foreground>
-                    <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top">
-                        <Slider x:Name="AppState_Slider_FadeTiming" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="30" Width="168" ValueChanged="AppState_Slider_FadeTiming_ValueChanged" Value="0" Minimum="0" Maximum="5000" >
+                    <StackPanel Orientation="Horizontal"
+                                Margin="10"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <Slider x:Name="AppState_Slider_FadeTiming"
+                                HorizontalAlignment="Left"
+                                Margin="0,0,0,0"
+                                VerticalAlignment="Top"
+                                Height="30"
+                                Width="168"
+                                ValueChanged="AppState_Slider_FadeTiming_ValueChanged"
+                                Value="0"
+                                Minimum="0"
+                                Maximum="5000">
                             <Slider.BindingGroup>
-                                <BindingGroup/>
+                                <BindingGroup />
                             </Slider.BindingGroup>
                         </Slider>
-                        <Label x:Name="Label_FadeTiming" Content="0.00 seconds" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Background="{x:Null}">
+                        <Label x:Name="Label_FadeTiming"
+                               Content="0.00 seconds"
+                               HorizontalAlignment="Left"
+                               Margin="0,0,0,0"
+                               VerticalAlignment="Top"
+                               Background="{x:Null}">
                             <Label.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ElementTitleColor}"/>
+                                <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
                             </Label.Foreground>
                         </Label>
                     </StackPanel>
                 </GroupBox>
-                <StackPanel Orientation="Horizontal" Margin="{DynamicResource VerticalElementMargin}">
-                    <CheckBox x:Name="AppState_CheckBox_MaxPP" Content="Max PP" Margin="{DynamicResource HorizontalElementMargin}" Foreground="{DynamicResource ElementColor}" Checked="AppState_CheckBox_MaxPP_Checked" Unchecked="AppState_CheckBox_MaxPP_Unchecked" Height="{DynamicResource CheckboxHeight}" />
-                    <TextBox x:Name="AppState_TextBox_MaxPP" Width="80" MaxLength="8" Margin="{DynamicResource HorizontalElementMargin}" Visibility="Collapsed" Height="{DynamicResource CheckboxHeight}" PreviewTextInput="AppState_TextBox_MaxPP_OnPreviewTextInput" DataObject.Pasting="AppState_TextBox_MaxPP_Pasting" KeyUp="AppState_TextBox_MaxPP_OnKeyUp" />
+                <StackPanel Orientation="Horizontal"
+                            Margin="{DynamicResource VerticalElementMargin}">
+                    <CheckBox x:Name="AppState_CheckBox_MaxPP"
+                              Content="Max PP"
+                              Margin="{DynamicResource HorizontalElementMargin}"
+                              Foreground="{DynamicResource ElementColor}"
+                              Checked="AppState_CheckBox_MaxPP_Checked"
+                              Unchecked="AppState_CheckBox_MaxPP_Unchecked"
+                              Height="{DynamicResource CheckboxHeight}" />
+                    <TextBox x:Name="AppState_TextBox_MaxPP"
+                             Width="80"
+                             MaxLength="8"
+                             Margin="{DynamicResource HorizontalElementMargin}"
+                             Visibility="Collapsed"
+                             Height="{DynamicResource CheckboxHeight}"
+                             PreviewTextInput="AppState_TextBox_MaxPP_OnPreviewTextInput"
+                             DataObject.Pasting="AppState_TextBox_MaxPP_Pasting"
+                             KeyUp="AppState_TextBox_MaxPP_OnKeyUp" />
                 </StackPanel>
-                <CheckBox x:Name="AppState_CheckBox_MapBreak" Content="Map Break" Margin="{DynamicResource VerticalElementMargin}" Foreground="{DynamicResource ElementColor}" Height="{DynamicResource CheckboxHeight}" />
-                <CheckBox x:Name="AppState_CheckBox_SongPaused" Content="Song Paused" Margin="{DynamicResource VerticalElementMargin}" Foreground="{DynamicResource ElementColor}" Height="{DynamicResource CheckboxHeight}" />
-
+                <CheckBox x:Name="AppState_CheckBox_MapBreak"
+                          Content="Map Break"
+                          Margin="{DynamicResource VerticalElementMargin}"
+                          Foreground="{DynamicResource ElementColor}"
+                          Height="{DynamicResource CheckboxHeight}" />
+                <CheckBox x:Name="AppState_CheckBox_SongPaused"
+                          Content="Song Paused"
+                          Margin="{DynamicResource VerticalElementMargin}"
+                          Foreground="{DynamicResource ElementColor}"
+                          Height="{DynamicResource CheckboxHeight}" />
             </StackPanel>
         </GroupBox>
     </StackPanel>

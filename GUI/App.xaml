@@ -5,16 +5,18 @@
              xmlns:System="clr-namespace:System;assembly=System.Runtime"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
         <Color x:Key="ElementTitleColor">White</Color>
         <Thickness x:Key="GroupBoxMargin">10</Thickness>
-        <SolidColorBrush x:Key="ElementColor" Color="White"/>
-        <SolidColorBrush x:Key="HiddenColor" Color="#FF490000"/>
-        <SolidColorBrush x:Key="VisibleColor" Color="#FF2EFF00"/>
+        <SolidColorBrush x:Key="ElementColor"
+                         Color="White" />
+        <SolidColorBrush x:Key="HiddenColor"
+                         Color="#FF490000" />
+        <SolidColorBrush x:Key="VisibleColor"
+                         Color="#FF2EFF00" />
         <Thickness x:Key="VerticalElementMargin">0,0,0,10</Thickness>
 
         <System:Double x:Key="CheckboxHeight">23</System:Double>
-        <SolidColorBrush x:Key="WindowBackgroundColor" Color="#FF404040"/>
-
+        <SolidColorBrush x:Key="WindowBackgroundColor"
+                         Color="#FF404040" />
     </Application.Resources>
 </Application>
