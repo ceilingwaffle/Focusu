@@ -1,14 +1,22 @@
 ﻿namespace GUI
 {
+    using GUI.Options;
     using System;
     using System.ComponentModel;
 
-    public class Options : INotifyPropertyChanged
+    public class Bindings : INotifyPropertyChanged
     {
         private TimeSpan fadeTiming = TimeSpan.FromMilliseconds(0);
         private OsuStatus osuStatus = OsuStatus.NotRunning;
+
         private MonitorStatus monitorStatus = MonitorStatus.Unblanked;
-        private bool manualControl = true;
+        private ControlMethod controlMethod = ControlMethod.Automatic;
+        private ManualControlType manualControlType = ManualControlType.AlwaysShow;
+
+        public Bindings()
+        {
+
+        }
 
         public TimeSpan FadeTiming
         {
@@ -49,23 +57,30 @@
             }
         }
 
-        public bool ManualControl
+        public ControlMethod ControlMethod
         {
             get
             {
-                return manualControl;
+                return controlMethod;
             }
             set
             {
-                manualControl = value;
-                OnPropertyChanged("ManualControl");
+                controlMethod = value;
+                OnPropertyChanged("ControlMethod");
             }
         }
 
-
-        public Options()
+        public ManualControlType ManualControlType
         {
-
+            get
+            {
+                return manualControlType;
+            }
+            set
+            {
+                manualControlType = value;
+                OnPropertyChanged("ManualControlType");
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };

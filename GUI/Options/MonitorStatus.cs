@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace GUI.Options
 {
     public enum MonitorStatus
     {

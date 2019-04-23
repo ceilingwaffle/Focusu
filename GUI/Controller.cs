@@ -1,6 +1,5 @@
 ﻿namespace GUI
 {
-    using System;
     using System.Windows;
 
     using OsuStatePresenter;
@@ -21,7 +20,7 @@
 
         public void HandleFadeTimingChanged(double ms)
         {
-            //Options.FadeTiming = TimeSpan.FromMilliseconds(ms);
+            //Bindings.FadeTiming = TimeSpan.FromMilliseconds(ms);
         }
     }
 }
