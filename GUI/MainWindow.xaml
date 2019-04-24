@@ -26,11 +26,11 @@
         <BitmapImage x:Key="BlankedMonitor"
                      CreateOptions="IgnoreImageCache"
                      CacheOption="OnLoad"
-                     UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_black.png" />
+                     UriSource="C:\C\focusu\GUI\resources\images\small\Monitor_black.png" />
         <BitmapImage x:Key="UnblankedMonitor"
                      CreateOptions="IgnoreImageCache"
                      CacheOption="OnLoad"
-                     UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_white.png" />
+                     UriSource="C:\C\focusu\GUI\resources\images\small\Monitor_white.png" />
     </Window.Resources>
     <StackPanel Orientation="Vertical"
                 Background="{DynamicResource WindowBackgroundColor}"
@@ -233,7 +233,6 @@
                                 VerticalAlignment="Top"
                                 Height="30"
                                 Width="168"
-                                ValueChanged="AppState_Slider_FadeTiming_ValueChanged"
                                 Value="0"
                                 Minimum="0"
                                 Maximum="5000">
@@ -259,8 +258,6 @@
                               Content="Max PP"
                               Margin="{DynamicResource HorizontalElementMargin}"
                               Foreground="{DynamicResource ElementColor}"
-                              Checked="AppState_CheckBox_MaxPP_Checked"
-                              Unchecked="AppState_CheckBox_MaxPP_Unchecked"
                               Height="{DynamicResource CheckboxHeight}"
                               Visibility="Collapsed" />
                     <TextBox x:Name="AppState_TextBox_MaxPP"
@@ -268,10 +265,7 @@
                              MaxLength="8"
                              Margin="{DynamicResource HorizontalElementMargin}"
                              Visibility="Collapsed"
-                             Height="{DynamicResource CheckboxHeight}"
-                             PreviewTextInput="AppState_TextBox_MaxPP_OnPreviewTextInput"
-                             DataObject.Pasting="AppState_TextBox_MaxPP_Pasting"
-                             KeyUp="AppState_TextBox_MaxPP_OnKeyUp" />
+                             Height="{DynamicResource CheckboxHeight}" />
                 </StackPanel>
                 <CheckBox x:Name="AppState_CheckBox_MapBreak"
                           Content="Map Break"

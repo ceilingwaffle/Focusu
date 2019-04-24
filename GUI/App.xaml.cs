@@ -13,5 +13,9 @@ namespace GUI
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            // code here runs before the MainWindow constructor
+        }
     }
 }
