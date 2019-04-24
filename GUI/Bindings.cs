@@ -6,12 +6,14 @@
 
     public class Bindings : INotifyPropertyChanged
     {
-        private TimeSpan fadeTiming = TimeSpan.FromMilliseconds(0);
         private OsuStatus osuStatus = OsuStatus.NotRunning;
 
+        private TimeSpan fadeTiming = TimeSpan.FromMilliseconds(0);
         private MonitorStatus monitorStatus = MonitorStatus.Unblanked;
         private ControlMethod controlMethod = ControlMethod.Automatic;
         private ManualControlType manualControlType = ManualControlType.AlwaysShow;
+        private bool blankForMapBreak = true;
+        private bool blankForSongPaused = true;
 
         public Bindings()
         {
@@ -80,6 +82,32 @@
             {
                 manualControlType = value;
                 OnPropertyChanged("ManualControlType");
+            }
+        }
+
+        public bool BlankForMapBreak
+        {
+            get
+            {
+                return blankForMapBreak;
+            }
+            set
+            {
+                blankForMapBreak = value;
+                OnPropertyChanged("BlankForMapBreak");
+            }
+        }
+
+        public bool BlankForSongPaused
+        {
+            get
+            {
+                return blankForSongPaused;
+            }
+            set
+            {
+                blankForSongPaused = value;
+                OnPropertyChanged("BlankForSongPaused");
             }
         }
 

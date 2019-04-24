@@ -69,17 +69,19 @@
                                 VerticalAlignment="Center"
                                 MinWidth="160">
                         <Label x:Name="Label_BlankedStatus"
+                               Content="Blanked"
                                HorizontalAlignment="Center"
                                Background="{x:Null}"
                                FontSize="24"
                                Foreground="{DynamicResource HiddenColor}"
-                               Content="Blanked" />
-                        <!--<Label x:Name="Label_BlankedStatus_Unblanked"
-                               HorizontalAlignment="Center"
+                               Visibility="Visible" />
+                        <Label x:Name="Label_BlankedStatus_Unblanked"
                                Content="Unblanked"
+                               HorizontalAlignment="Center"
                                Background="{x:Null}"
                                FontSize="24"
-                               Foreground="{DynamicResource VisibleColor}" />-->
+                               Foreground="{DynamicResource VisibleColor}"
+                               Visibility="Collapsed" />
                         <Label x:Name="Label_StatusReason"
                                HorizontalAlignment="Center"
                                Content="(Reason Unknown)"
@@ -215,7 +217,8 @@
                           Height="69"
                           VerticalAlignment="Top"
                           Width="307"
-                          Margin="{DynamicResource VerticalElementMargin}">
+                          Margin="{DynamicResource VerticalElementMargin}"
+                          Visibility="Collapsed">
                     <GroupBox.Foreground>
                         <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
                     </GroupBox.Foreground>
@@ -257,7 +260,8 @@
                               Foreground="{DynamicResource ElementColor}"
                               Checked="AppState_CheckBox_MaxPP_Checked"
                               Unchecked="AppState_CheckBox_MaxPP_Unchecked"
-                              Height="{DynamicResource CheckboxHeight}" />
+                              Height="{DynamicResource CheckboxHeight}" 
+                              Visibility="Collapsed" />
                     <TextBox x:Name="AppState_TextBox_MaxPP"
                              Width="80"
                              MaxLength="8"
@@ -272,12 +276,14 @@
                           Content="Map Break"
                           Margin="{DynamicResource VerticalElementMargin}"
                           Foreground="{DynamicResource ElementColor}"
-                          Height="{DynamicResource CheckboxHeight}" />
+                          Height="{DynamicResource CheckboxHeight}"
+                          IsChecked="{Binding Source={StaticResource bindingsDataSource}, Path=BlankForMapBreak}" />
                 <CheckBox x:Name="AppState_CheckBox_SongPaused"
                           Content="Song Paused"
                           Margin="{DynamicResource VerticalElementMargin}"
                           Foreground="{DynamicResource ElementColor}"
-                          Height="{DynamicResource CheckboxHeight}" />
+                          Height="{DynamicResource CheckboxHeight}"
+                          IsChecked="{Binding Source={StaticResource bindingsDataSource}, Path=BlankForSongPaused}" />
             </StackPanel>
         </GroupBox>
     </StackPanel>
