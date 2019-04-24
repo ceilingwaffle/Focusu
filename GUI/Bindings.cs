@@ -6,8 +6,10 @@
 
     public class Bindings : INotifyPropertyChanged
     {
+        // state (UI cannot modify these)
         private OsuStatus osuStatus = OsuStatus.NotRunning;
 
+        // controls/settings
         private TimeSpan fadeTiming = TimeSpan.FromMilliseconds(0);
         private MonitorStatus monitorStatus = MonitorStatus.Unblanked;
         private ControlMethod controlMethod = ControlMethod.Automatic;

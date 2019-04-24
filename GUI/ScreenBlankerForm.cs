@@ -56,5 +56,39 @@ namespace GUI
         private void OnLoad(object sender, EventArgs e)
         {
         }
+
+        delegate void BlankCallback();
+
+        public void Blank()
+        {
+            if (this.InvokeRequired)
+            {
+                BlankCallback d = new BlankCallback(Blank);
+                this.Invoke(d);
+            }
+            else
+            {
+                //SetOpacity(1.0);
+                this.Visible = true;
+                this.Show();
+            }
+        }
+
+        delegate void UnblankCallback();
+
+        public void Unblank()
+        {
+            if (this.InvokeRequired)
+            {
+                UnblankCallback d = new UnblankCallback(Unblank);
+                this.Invoke(d);
+            }
+            else
+            {
+                //SetOpacity(0.0);
+                this.Visible = false;
+                this.Hide();
+            }
+        }
     }
 }

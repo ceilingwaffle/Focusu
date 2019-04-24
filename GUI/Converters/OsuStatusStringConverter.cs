@@ -55,7 +55,10 @@ namespace GUI.Converters
 
                 case OsuStatus.SongPaused:
                     return "Paused";
+                case OsuStatus.InMapBreak:
+                    return "Map Break";
                 default:
+                    System.Diagnostics.Debug.WriteLine($"No converter string defined for osu status {newOsuStatus.ToString()}");
                     return "Unknown";
             }
         }

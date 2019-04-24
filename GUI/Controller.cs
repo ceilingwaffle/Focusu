@@ -40,47 +40,34 @@
             // update the data bindings
             this.dataBindings.OsuStatus = this.ProcessOsuStatus(newState);
 
-            // decide whether or not to blank the screen
+            // TODO: decide whether or not to blank the screen
         }
 
         private OsuStatus ProcessOsuStatus(State newState)
         {
-            // TODO: catch potential cast exceptions
-            string status = "Unknown";
-            bool isPaused = false;
-
-            try
+            if (!TryCastOsuStateProperty(newState, "GameStatus", out string status))
             {
-                object oStatus = newState["GameStatus"];
-
-                if (oStatus != null)
-                {
-                    status = (string)oStatus;
-                }
-
-            }
-            catch
-            {
-                Debug.WriteLine("ERROR: Unable to cast GameStatus");
+                status = "Unknown";
             }
 
-            try
+            if (!TryCastOsuStateProperty(newState, "SongIsPaused", out bool isPaused))
             {
-                object oIsPaused = newState["SongIsPaused"];
-
-                if (oIsPaused != null)
-                {
-                    isPaused = (bool)oIsPaused;
-                }
+                isPaused = false;
             }
-            catch
+
+            if (!TryCastOsuStateProperty(newState, "IsMapBreak", out bool isMapBreak))
             {
-                Debug.WriteLine("ERROR: Unable to cast SongIsPaused");
+                isMapBreak = false;
             }
 
             if (isPaused == false && status.Equals("Unknown"))
             {
                 return OsuStatus.Unknown;
+            }
+
+            if (isPaused == false && status.Equals("Playing") && isMapBreak == true)
+            {
+                return OsuStatus.InMapBreak;
             }
 
             // TODO: Only return paused if the map time is greater than some minimum time, to prevent paused/playing flickering. Need to find the time of the first beatmap object, then add on some minimum time (e.g. 2 seconds)
@@ -100,6 +87,28 @@
             }
 
             return osuStatus;
+        }
+
+        private bool TryCastOsuStateProperty<T>(State state, string statePropName, out T result)
+        {
+            try
+            {
+                object oResult = state[statePropName];
+
+                if (oResult != null)
+                {
+                    result = (T)oResult;
+                    return true;
+                }
+
+            }
+            catch
+            {
+                Debug.WriteLine($"ERROR: Unable to cast {statePropName} to type {typeof(T).ToString()}");
+            }
+
+            result = default;
+            return false;
         }
     }
 }
