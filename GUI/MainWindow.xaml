@@ -12,7 +12,7 @@
         Title="Focusu!"
         ScrollViewer.VerticalScrollBarVisibility="Disabled"
         Height="562"
-        Width="583"
+        Width="800"
         Background="{DynamicResource WindowBackgroundColor}">
     <Window.Resources>
         <gui:Bindings x:Key="bindingsDataSource"></gui:Bindings>

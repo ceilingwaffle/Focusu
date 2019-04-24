@@ -52,6 +52,9 @@ namespace GUI.Converters
                     return "Tourney";
                 case OsuStatus.Unknown:
                     return "Unknown";
+
+                case OsuStatus.SongPaused:
+                    return "Paused";
                 default:
                     return "Unknown";
             }

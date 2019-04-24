@@ -15,11 +15,10 @@
         {
             InitializeComponent();
 
-            this.controller = new Controller();
             Bindings bindings = (Bindings)this.FindResource("bindingsDataSource");
+            this.controller = new Controller(bindings);
 
-            bindings.ControlMethod = Options.ControlMethod.Automatic;
-
+            //bindings.ControlMethod = Options.ControlMethod.Automatic;
         }
         private void Monitor_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

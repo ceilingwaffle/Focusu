@@ -26,10 +26,12 @@
         RankingTeam = 18,
         ProcessingBeatmaps = 19,
         Tourney = 22,
-
         /// <summary>
         /// Indicates that status read in osu memory is not defined in OsuMemoryStatus
         /// </summary>
         Unknown = -2,
+
+        // my own below:
+        SongPaused = 101,
     }
 }
