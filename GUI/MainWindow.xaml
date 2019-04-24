@@ -202,7 +202,7 @@
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
                   Width="345"
-                  Header="Automatic Options"
+                  Header="Automatically Un-blank During:"
                   Margin="10,10,0,10"
                   Visibility="{Binding Source={StaticResource bindingsDataSource}, Converter={StaticResource controlMethodVisibilityConverter}, ConverterParameter={x:Static options:ControlMethod.Automatic}, Path=ControlMethod}">
             <GroupBox.Foreground>
@@ -278,13 +278,13 @@
                           Margin="{DynamicResource VerticalElementMargin}"
                           Foreground="{DynamicResource ElementColor}"
                           Height="{DynamicResource CheckboxHeight}"
-                          IsChecked="{Binding Source={StaticResource bindingsDataSource}, Path=BlankForMapBreak}" />
+                          IsChecked="{Binding Source={StaticResource bindingsDataSource}, Path=UnblankForMapBreak}" />
                 <CheckBox x:Name="AppState_CheckBox_SongPaused"
                           Content="Song Paused"
                           Margin="{DynamicResource VerticalElementMargin}"
                           Foreground="{DynamicResource ElementColor}"
                           Height="{DynamicResource CheckboxHeight}"
-                          IsChecked="{Binding Source={StaticResource bindingsDataSource}, Path=BlankForSongPaused}" />
+                          IsChecked="{Binding Source={StaticResource bindingsDataSource}, Path=UnblankForSongPaused}" />
             </StackPanel>
         </GroupBox>
     </StackPanel>

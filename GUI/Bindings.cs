@@ -12,8 +12,8 @@
         private MonitorStatus monitorStatus = MonitorStatus.Unblanked;
         private ControlMethod controlMethod = ControlMethod.Automatic;
         private ManualControlType manualControlType = ManualControlType.AlwaysShow;
-        private bool blankForMapBreak = true;
-        private bool blankForSongPaused = true;
+        private bool unblankForMapBreak = true;
+        private bool unblankForSongPaused = true;
 
         public Bindings()
         {
@@ -85,29 +85,29 @@
             }
         }
 
-        public bool BlankForMapBreak
+        public bool UnblankForMapBreak
         {
             get
             {
-                return blankForMapBreak;
+                return unblankForMapBreak;
             }
             set
             {
-                blankForMapBreak = value;
-                OnPropertyChanged("BlankForMapBreak");
+                unblankForMapBreak = value;
+                OnPropertyChanged("UnblankForMapBreak");
             }
         }
 
-        public bool BlankForSongPaused
+        public bool UnblankForSongPaused
         {
             get
             {
-                return blankForSongPaused;
+                return unblankForSongPaused;
             }
             set
             {
-                blankForSongPaused = value;
-                OnPropertyChanged("BlankForSongPaused");
+                unblankForSongPaused = value;
+                OnPropertyChanged("UnblankForSongPaused");
             }
         }
 
