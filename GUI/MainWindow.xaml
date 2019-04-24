@@ -19,6 +19,7 @@
         <converters:ControlMethodBooleanConverter x:Key="controlMethodBooleanConverter" />
         <converters:ControlMethodVisibilityConverter x:Key="controlMethodVisibilityConverter" />
         <converters:ManualControlTypeBooleanConverter x:Key="manualControlTypeBooleanConverter" />
+        <converters:OsuStatusStringConverter x:Key="osuStatusStringConverter" />
         <System:Double x:Key="ButtonWidth">100</System:Double>
         <Thickness x:Key="HorizontalElementMargin">0,0,10,0</Thickness>
         <Thickness x:Key="MonitorStatusMargin">0,0,10,0</Thickness>
@@ -50,7 +51,7 @@
                             VerticalAlignment="Top">
                     <Label x:Name="Label_OsuStatus_1"
                            HorizontalAlignment="Center"
-                           Content="Paused"
+                           Content="{Binding Source={StaticResource bindingsDataSource}, Path=OsuStatus, Mode=OneWay, Converter={StaticResource osuStatusStringConverter}}"
                            Background="{x:Null}"
                            FontSize="24"
                            Foreground="{DynamicResource VisibleColor}" />
@@ -160,14 +161,14 @@
                              Foreground="{DynamicResource ElementColor}"
                              Margin="{DynamicResource HorizontalElementMargin}"
                              IsChecked="{Binding Source={StaticResource bindingsDataSource}, Converter={StaticResource controlMethodBooleanConverter}, ConverterParameter={x:Static options:ControlMethod.Automatic}, Path=ControlMethod}" />
-                            <!--Checked="AppState_RadioButton_Automatic_Checked"--> 
+                <!--Checked="AppState_RadioButton_Automatic_Checked"-->
                 <RadioButton x:Name="AppState_RadioButton_Manual"
                              Content="Manual"
                              GroupName="ScreenBlankingBehaviour"
                              Foreground="{DynamicResource ElementColor}"
                              Margin="{DynamicResource HorizontalElementMargin}"
                              IsChecked="{Binding Source={StaticResource bindingsDataSource}, Converter={StaticResource controlMethodBooleanConverter}, ConverterParameter={x:Static options:ControlMethod.Manual}, Path=ControlMethod}" />
-                            <!--Checked="AppState_RadioButton_Manual_Checked"--> 
+                <!--Checked="AppState_RadioButton_Manual_Checked"-->
             </StackPanel>
         </GroupBox>
         <GroupBox x:Name="GroupBox_ManualControls"
@@ -260,7 +261,7 @@
                               Foreground="{DynamicResource ElementColor}"
                               Checked="AppState_CheckBox_MaxPP_Checked"
                               Unchecked="AppState_CheckBox_MaxPP_Unchecked"
-                              Height="{DynamicResource CheckboxHeight}" 
+                              Height="{DynamicResource CheckboxHeight}"
                               Visibility="Collapsed" />
                     <TextBox x:Name="AppState_TextBox_MaxPP"
                              Width="80"
