@@ -6,6 +6,7 @@
     using DVPF.Core;
     using System;
     using System.Diagnostics;
+    using System.Windows.Forms;
 
     /// <inheritdoc />
     /// <summary>
@@ -20,19 +21,33 @@
         public Controller(Bindings dataBindings)
         {
             this.dataBindings = dataBindings;
-            this.screenBlanker = new ScreenBlanker();
+            this.screenBlanker = new ScreenBlanker(this.CollectScreens());
+
             osuStatePresenter = new OsuPresenter(HandleOsuGameStateCreated);
             osuStatePresenter.Start();
         }
 
-        public void HandleFadeTimingChanged(double ms)
+        private FocusuScreenCollection CollectScreens()
         {
-            //Bindings.FadeTiming = TimeSpan.FromMilliseconds(ms);
-        }
+            var focusuScreenCollection = new FocusuScreenCollection();
+            
+            foreach (var screen in Screen.AllScreens)
+            {
+                var focusuScreen = new FocusuScreen(screen);
 
-        public void HandleOsuGameStateCreated(State newState)
-        {
-            this.ProcessOsuGameState(newState);
+                if (screen.Primary)
+                {
+                    focusuScreen.IsEnabled = false;
+                    focusuScreenCollection.PrimaryScreen = focusuScreen;
+                }
+                else
+                {
+                    focusuScreen.IsEnabled = true;
+                    focusuScreenCollection.SecondaryScreens.Add(focusuScreen);
+                }
+            }
+
+            return focusuScreenCollection;
         }
 
         private void ProcessOsuGameState(State newState)
@@ -41,6 +56,26 @@
             this.dataBindings.OsuStatus = this.ProcessOsuStatus(newState);
 
             // TODO: decide whether or not to blank the screen
+            if (this.dataBindings.OsuStatus == OsuStatus.Playing)
+            {
+                if (this.dataBindings.IsBlanked)
+                {
+                    return;
+                }
+
+                bool blankingSucceeded = this.screenBlanker.BlankEnabled();
+                this.dataBindings.IsBlanked = blankingSucceeded;
+            }
+            else
+            {
+                if (!this.dataBindings.IsBlanked)
+                {
+                    return;
+                }
+
+                bool unblankingSucceeded = this.screenBlanker.UnblankEnabled();
+                this.dataBindings.IsBlanked = !unblankingSucceeded;
+            }
         }
 
         private OsuStatus ProcessOsuStatus(State newState)
@@ -70,7 +105,6 @@
                 return OsuStatus.InMapBreak;
             }
 
-            // TODO: Only return paused if the map time is greater than some minimum time, to prevent paused/playing flickering. Need to find the time of the first beatmap object, then add on some minimum time (e.g. 2 seconds)
             if (status.Equals("Playing") && isPaused == true)
             {
                 return OsuStatus.SongPaused;
@@ -81,6 +115,7 @@
                 return OsuStatus.Unknown;
             }
 
+            // try to get the enum property name as a string
             if (!Enum.TryParse(status, true, out OsuStatus osuStatus))
             {
                 return OsuStatus.Unknown;
@@ -109,6 +144,17 @@
 
             result = default;
             return false;
+        }
+
+        public void HandleFadeTimingChanged(double ms)
+        {
+            // TODO
+            //Bindings.FadeTiming = TimeSpan.FromMilliseconds(ms);
+        }
+
+        public void HandleOsuGameStateCreated(State newState)
+        {
+            this.ProcessOsuGameState(newState);
         }
     }
 }

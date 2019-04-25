@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace GUI
 {
-    internal class ScreenBlankerForm : Form
+    public class ScreenBlankerForm : Form
     {
         // Shows the form as topmost without stealing focus: https://stackoverflow.com/a/25219414
         protected override bool ShowWithoutActivation
@@ -24,6 +25,8 @@ namespace GUI
             }
         }
 
+        public Screen TargetScreen { get; }
+
         public ScreenBlankerForm(Screen targetScreen)
         {
             InitializeComponent();
@@ -34,6 +37,7 @@ namespace GUI
             StartPosition = FormStartPosition.Manual;
             Location = targetScreen.WorkingArea.Location;
             Bounds = targetScreen.Bounds;
+            TargetScreen = targetScreen;
             //TopMost = true;
         }
 
@@ -50,7 +54,8 @@ namespace GUI
 
         private void OnMouseClick(object sender, MouseEventArgs e)
         {
-            // TODO: Disable the monitor from blanking and display notification to the user that the screen is now disabled
+            // TODO: temporarily set TargetScreen.IsEnabled = false (but reset to true when the user re-enters the osu! window)
+            this.Unblank();
         }
 
         private void OnLoad(object sender, EventArgs e)
@@ -64,13 +69,12 @@ namespace GUI
             if (this.InvokeRequired)
             {
                 BlankCallback d = new BlankCallback(Blank);
-                this.Invoke(d);
+                this.Invoke(d, new object[] { });
             }
             else
             {
-                //SetOpacity(1.0);
-                this.Visible = true;
-                this.Show();
+                this.Visible = false;
+                this.ShowDialog();
             }
         }
 
@@ -81,11 +85,10 @@ namespace GUI
             if (this.InvokeRequired)
             {
                 UnblankCallback d = new UnblankCallback(Unblank);
-                this.Invoke(d);
+                this.Invoke(d, new object[] { });
             }
             else
             {
-                //SetOpacity(0.0);
                 this.Visible = false;
                 this.Hide();
             }

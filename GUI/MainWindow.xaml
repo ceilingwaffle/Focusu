@@ -26,11 +26,11 @@
         <BitmapImage x:Key="BlankedMonitor"
                      CreateOptions="IgnoreImageCache"
                      CacheOption="OnLoad"
-                     UriSource="C:\C\focusu\GUI\resources\images\small\Monitor_black.png" />
+                     UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_black.png" />
         <BitmapImage x:Key="UnblankedMonitor"
                      CreateOptions="IgnoreImageCache"
                      CacheOption="OnLoad"
-                     UriSource="C:\C\focusu\GUI\resources\images\small\Monitor_white.png" />
+                     UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_white.png" />
     </Window.Resources>
     <StackPanel Orientation="Vertical"
                 Background="{DynamicResource WindowBackgroundColor}"

@@ -8,6 +8,7 @@
     {
         // state (UI cannot modify these)
         private OsuStatus osuStatus = OsuStatus.NotRunning;
+        private bool isBlanked = false;
 
         // controls/settings
         private TimeSpan fadeTiming = TimeSpan.FromMilliseconds(0);
@@ -110,6 +111,19 @@
             {
                 unblankForSongPaused = value;
                 OnPropertyChanged("UnblankForSongPaused");
+            }
+        }
+
+        public bool IsBlanked
+        {
+            get
+            {
+                return isBlanked;
+            }
+            set
+            {
+                isBlanked = value;
+                OnPropertyChanged("IsBlanked");
             }
         }
 
