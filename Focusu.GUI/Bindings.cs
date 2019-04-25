@@ -15,7 +15,7 @@
         private MonitorStatus monitorStatus = MonitorStatus.Unblanked;
         private ControlMethod controlMethod = ControlMethod.Automatic;
         private ManualControlType manualControlType = ManualControlType.AlwaysShow;
-        private bool unblankForMapBreak = false;
+        private bool unblankForMapBreak = true;
         private bool unblankForSongPaused = true;
 
         public Bindings()

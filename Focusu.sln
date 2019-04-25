@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{E2648F48-16DF-4B2C-A602-E9503A09D19C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Focusu.GUI", "Focusu.GUI\Focusu.GUI.csproj", "{E2648F48-16DF-4B2C-A602-E9503A09D19C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "submodules", "submodules", "{EF004CBC-C8BC-4DB6-A7AA-72D3063B75B1}"
 EndProject

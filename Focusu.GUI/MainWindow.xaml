@@ -11,9 +11,11 @@
         mc:Ignorable="d"
         Title="Focusu!"
         ScrollViewer.VerticalScrollBarVisibility="Disabled"
-        Height="562"
-        Width="800"
-        Background="{DynamicResource WindowBackgroundColor}">
+        Background="{DynamicResource WindowBackgroundColor}"
+        SizeToContent="WidthAndHeight"
+        Margin="10,10,10,10">
+    <!--Height="562"-->
+    <!--Width="800"-->
     <Window.Resources>
         <gui:Bindings x:Key="bindingsDataSource"></gui:Bindings>
         <converters:ControlMethodBooleanConverter x:Key="controlMethodBooleanConverter" />
@@ -26,11 +28,11 @@
         <BitmapImage x:Key="BlankedMonitor"
                      CreateOptions="IgnoreImageCache"
                      CacheOption="OnLoad"
-                     UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_black.png" />
+                     UriSource="pack://application:,,,/Focusu.GUI;component/resources/images/small/Monitor_black.png" />
         <BitmapImage x:Key="UnblankedMonitor"
                      CreateOptions="IgnoreImageCache"
                      CacheOption="OnLoad"
-                     UriSource="X:\C\focusu\GUI\resources\images\small\Monitor_white.png" />
+                     UriSource="pack://application:,,,/Focusu.GUI;component/resources/images/small/Monitor_white.png" />
     </Window.Resources>
     <StackPanel Orientation="Vertical"
                 Background="{DynamicResource WindowBackgroundColor}"
@@ -42,7 +44,7 @@
                       HorizontalAlignment="Left"
                       VerticalAlignment="Top"
                       Header="osu! Status"
-                      Margin="10,10,0,10">
+                      Margin="10,10,10,10">
                 <GroupBox.Foreground>
                     <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
                 </GroupBox.Foreground>
@@ -61,7 +63,8 @@
                       HorizontalAlignment="Left"
                       VerticalAlignment="Top"
                       Header="Monitor Status"
-                      Margin="10,10,0,10">
+                      Margin="10,10,10,10"
+                      Visibility="Collapsed">
                 <GroupBox.Foreground>
                     <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
                 </GroupBox.Foreground>
@@ -147,7 +150,7 @@
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
                   Header="Monitor Blanking Behaviour"
-                  Margin="10,10,0,10">
+                  Margin="10,10,10,10">
             <GroupBox.Foreground>
                 <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
             </GroupBox.Foreground>
@@ -203,7 +206,7 @@
                   VerticalAlignment="Top"
                   Width="345"
                   Header="Automatically Un-blank During:"
-                  Margin="10,10,0,10"
+                  Margin="10,10,10,10"
                   Visibility="{Binding Source={StaticResource bindingsDataSource}, Converter={StaticResource controlMethodVisibilityConverter}, ConverterParameter={x:Static options:ControlMethod.Automatic}, Path=ControlMethod}">
             <GroupBox.Foreground>
                 <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
