@@ -12,13 +12,17 @@ namespace GUI
             this.screens = screens;
         }
 
-        public bool BlankEnabled()
+        /// <summary>
+        /// returns true if all enabled screens were successfully blanked
+        /// </summary>
+        /// <returns></returns>
+        public bool BlankEnabledSecondaryScreens()
         {
             bool successfullyBlankedAll = true;
 
             foreach (var screen in this.screens.SecondaryScreens)
             {
-                if (screen.IsEnabled)
+                if (screen.IsEnabled && !screen.IsBlanked)
                 {
                     if (!this.BlankOne(screen))
                     {
@@ -51,13 +55,17 @@ namespace GUI
             return wasBlanked;
         }
 
-        public bool UnblankEnabled()
+        /// <summary>
+        /// returns true if all screens were successfully unblanked
+        /// </summary>
+        /// <returns></returns>
+        public bool UnblankAllSecondaryScreens()
         {
             bool successfullyUnblankedAll = true;
 
             foreach (var screen in this.screens.SecondaryScreens)
             {
-                if (screen.IsEnabled)
+                if (screen.IsBlanked)
                 {
                     if (!this.UnblankOne(screen))
                     {

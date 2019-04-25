@@ -10,7 +10,7 @@
 
     /// <inheritdoc />
     /// <summary>
-    /// The controller.
+    /// Processes the osu! game state, updates the data bindings, and blanks/unblanks the screens.
     /// </summary>
     public class Controller : DependencyObject
     {
@@ -26,11 +26,21 @@
             osuStatePresenter = new OsuPresenter(HandleOsuGameStateCreated);
             osuStatePresenter.Start();
         }
+        public void HandleFadeTimingChanged(double ms)
+        {
+            // TODO
+            //Bindings.FadeTiming = TimeSpan.FromMilliseconds(ms);
+        }
+
+        public void HandleOsuGameStateCreated(State newState)
+        {
+            this.ProcessOsuGameState(newState);
+        }
 
         private FocusuScreenCollection CollectScreens()
         {
             var focusuScreenCollection = new FocusuScreenCollection();
-            
+
             foreach (var screen in Screen.AllScreens)
             {
                 var focusuScreen = new FocusuScreen(screen);
@@ -52,33 +62,89 @@
 
         private void ProcessOsuGameState(State newState)
         {
-            // update the data bindings
-            this.dataBindings.OsuStatus = this.ProcessOsuStatus(newState);
+            this.dataBindings.OsuStatus = this.GetOsuStatusFromGameState(newState);
 
-            // TODO: decide whether or not to blank the screen
-            if (this.dataBindings.OsuStatus == OsuStatus.Playing)
+            // handle automatic controls
+            if (IsAutomaticalControls())
             {
-                if (this.dataBindings.IsBlanked)
+                if (ShouldAutomaticallyBlankNow(this.dataBindings.OsuStatus))
                 {
-                    return;
+                    DoBlanking();
+                }
+                else if (IsBlanked())
+                {
+                    DoUnblanking();
                 }
 
-                bool blankingSucceeded = this.screenBlanker.BlankEnabled();
-                this.dataBindings.IsBlanked = blankingSucceeded;
+                return;
             }
-            else
-            {
-                if (!this.dataBindings.IsBlanked)
-                {
-                    return;
-                }
 
-                bool unblankingSucceeded = this.screenBlanker.UnblankEnabled();
-                this.dataBindings.IsBlanked = !unblankingSucceeded;
+            // handle manual controls
+            if (IsBlanked() && AlwaysShow())
+            {
+                DoUnblanking();
+            }
+            else if (IsNotBlanked() && AlwaysBlank())
+            {
+                DoBlanking();
             }
         }
 
-        private OsuStatus ProcessOsuStatus(State newState)
+        private bool IsAutomaticalControls()
+        {
+            return this.dataBindings.ControlMethod == Options.ControlMethod.Automatic;
+        }
+        private bool IsBlanked()
+        {
+            return this.dataBindings.IsBlanked;
+        }
+
+        private bool IsNotBlanked()
+        {
+            return !this.dataBindings.IsBlanked;
+        }
+
+        private bool AlwaysBlank()
+        {
+            return this.dataBindings.ManualControlType == Options.ManualControlType.AlwaysBlank;
+        }
+
+        private bool AlwaysShow()
+        {
+            return this.dataBindings.ManualControlType == Options.ManualControlType.AlwaysShow;
+        }
+
+        private void DoUnblanking()
+        {
+            this.dataBindings.IsBlanked = !this.screenBlanker.UnblankAllSecondaryScreens();
+        }
+
+        private void DoBlanking()
+        {
+            this.dataBindings.IsBlanked = this.screenBlanker.BlankEnabledSecondaryScreens();
+        }
+
+        private bool ShouldAutomaticallyBlankNow(OsuStatus osuStatus)
+        {
+            if (osuStatus == OsuStatus.SongPaused && !this.dataBindings.UnblankForSongPaused)
+            {
+                return true;
+            }
+
+            if (osuStatus == OsuStatus.InMapBreak && !this.dataBindings.UnblankForMapBreak)
+            {
+                return true;
+            }
+
+            if (osuStatus == OsuStatus.Playing)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private OsuStatus GetOsuStatusFromGameState(State newState)
         {
             if (!TryCastOsuStateProperty(newState, "GameStatus", out string status))
             {
@@ -146,15 +212,5 @@
             return false;
         }
 
-        public void HandleFadeTimingChanged(double ms)
-        {
-            // TODO
-            //Bindings.FadeTiming = TimeSpan.FromMilliseconds(ms);
-        }
-
-        public void HandleOsuGameStateCreated(State newState)
-        {
-            this.ProcessOsuGameState(newState);
-        }
     }
 }
