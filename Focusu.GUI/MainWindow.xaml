@@ -276,12 +276,18 @@
                           Foreground="{DynamicResource ElementColor}"
                           Height="{DynamicResource CheckboxHeight}"
                           IsChecked="{Binding Source={StaticResource bindingsDataSource}, Path=UnblankForMapBreak}" />
-                <CheckBox x:Name="AppState_CheckBox_SongPaused"
-                          Content="Song Paused"
+                <CheckBox x:Name="AppState_CheckBox_MapPaused"
+                          Content="Map Paused"
                           Margin="{DynamicResource VerticalElementMargin}"
                           Foreground="{DynamicResource ElementColor}"
                           Height="{DynamicResource CheckboxHeight}"
                           IsChecked="{Binding Source={StaticResource bindingsDataSource}, Path=UnblankForSongPaused}" />
+                <CheckBox x:Name="AppState_CheckBox_MapStart"
+                          Content="Beginning of Map"
+                          Margin="{DynamicResource VerticalElementMargin}"
+                          Foreground="{DynamicResource ElementColor}"
+                          Height="{DynamicResource CheckboxHeight}"
+                          IsChecked="{Binding Source={StaticResource bindingsDataSource}, Path=UnblankForMapStart}" />
             </StackPanel>
         </GroupBox>
     </StackPanel>

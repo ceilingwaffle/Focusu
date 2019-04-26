@@ -57,6 +57,8 @@ namespace GUI.Converters
                     return "Paused";
                 case OsuStatus.InMapBreak:
                     return "Map Break";
+                case OsuStatus.MapStart:
+                    return "Map Start";
                 default:
                     System.Diagnostics.Debug.WriteLine($"No converter string defined for osu status {newOsuStatus.ToString()}");
                     return "Unknown";

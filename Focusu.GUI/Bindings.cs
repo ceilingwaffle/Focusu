@@ -17,6 +17,7 @@
         private ManualControlType manualControlType = ManualControlType.AlwaysShow;
         private bool unblankForMapBreak = true;
         private bool unblankForSongPaused = true;
+        private bool unblankForMapStart = true;
 
         public Bindings()
         {
@@ -124,6 +125,19 @@
             {
                 isBlanked = value;
                 OnPropertyChanged("IsBlanked");
+            }
+        }
+
+        public bool UnblankForMapStart
+        {
+            get
+            {
+                return unblankForMapStart;
+            }
+            set
+            {
+                unblankForMapStart = value;
+                OnPropertyChanged("UnblankForMapStart");
             }
         }
 

@@ -22,10 +22,26 @@
         {
             this.dataBindings = dataBindings;
             this.screenBlanker = new ScreenBlanker(this.CollectScreens());
-
             osuStatePresenter = new OsuPresenter(HandleOsuGameStateCreated);
-            osuStatePresenter.Start();
+            this.SetupOsuStatePresenter(osuStatePresenter);
         }
+
+        private void SetupOsuStatePresenter(OsuPresenter osuPresenter)
+        {
+            // disable nodes not required for this app
+            osuPresenter.TryGetNode(typeof(OsuStatePresenter.Nodes.BpmNode), out Node bpmNode);
+            bpmNode.DisablePresentation();
+
+            osuPresenter.TryGetNode(typeof(OsuStatePresenter.Nodes.ModsNode), out Node modeNode);
+            modeNode.DisablePresentation();
+
+            osuPresenter.TryGetNode(typeof(OsuStatePresenter.Nodes.PPNode), out Node ppNode);
+            ppNode.DisablePresentation();
+
+            // start presenting and scanning for node values
+            osuPresenter.Start();
+        }
+
         public void HandleFadeTimingChanged(double ms)
         {
             // TODO
@@ -63,6 +79,8 @@
         private void ProcessOsuGameState(State newState)
         {
             this.dataBindings.OsuStatus = this.GetOsuStatusFromGameState(newState);
+
+            Debug.WriteLine(newState.ToString());
 
             // handle automatic controls
             if (IsAutomaticalControls())
@@ -161,6 +179,11 @@
                 isMapBreak = false;
             }
 
+            if (!TryCastOsuStateProperty(newState, "IsMapStart", out bool isMapStart))
+            {
+                isMapStart = false;
+            }
+
             if (isPaused == false && status.Equals("Unknown"))
             {
                 return OsuStatus.Unknown;
@@ -174,6 +197,11 @@
             if (status.Equals("Playing") && isPaused == true)
             {
                 return OsuStatus.SongPaused;
+            }
+
+            if (status.Equals("Playing") && isMapStart == true)
+            {
+                return OsuStatus.MapStart;
             }
 
             if (status.Length < 1)

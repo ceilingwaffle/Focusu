@@ -34,5 +34,6 @@
         // my own below:
         SongPaused = 101,
         InMapBreak = 102,
+        MapStart = 103,
     }
 }
