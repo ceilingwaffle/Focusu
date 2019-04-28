@@ -80,7 +80,7 @@
         {
             this.dataBindings.OsuStatus = this.GetOsuStatusFromGameState(newState);
 
-            Debug.WriteLine(newState.ToString());
+            Debug.WriteLine($"\n{newState.ToString()}");
 
             // handle automatic controls
             if (IsAutomaticalControls())
