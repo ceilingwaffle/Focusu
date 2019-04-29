@@ -24,10 +24,16 @@ Enables automatic blanking. Choose this option if you want the program to decide
 
 # Planned Features
 - Pause Streamlabs/Stream Elements alerts until the current map ends.
+- Disable/enable individual monitors from blanking (for those true-gamer triple monitor beasts out there).
+- Block a custom rectangular subset of a screen (may be useful for those that play in windowed mode).
 
 [//]: # (https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
 
 [//]: # (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+# Acknowledgments
+- [Piotrekol](https://github.com/Piotrekol) for the awesome open source C# osu memory scanner (made my life 100x easier). 
+- Anyone in my Twitch chat who helped me with C# or just  stopped by to say hi and keep me company while building this! <3
 
 # Need help?
 Hit me up in the #focusu-help channel in our [Discord server.](https://discordapp.com/invite/CmjtS6W)
