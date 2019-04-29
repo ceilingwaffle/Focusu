@@ -2,12 +2,15 @@
 
 A tool for osu! streamers to reduce distractions while you play, letting you focus solely on the game, instead of that sudden elevator of PogChamps and BTTV gifs flooding the corner of your eye.
 
+This is primarily aimed at osu! livestreamers, but if you use a second monitor to watch a Twitch stream while you play, or a movie, or Discord, or anything really, you might also find it useful.
+
 # Features
 - Blank the contents of your secondary monitors when you play a map.
 - Automatic controls can un-blank your monitors when you:
-    * Start a new map
-    * Enter a map break
-    * Pause the map
+    * Finish playing a map (results screen / main menu)
+    * Hit the escape key to pause 
+    * Enter a map break (that grey area in the map editor)
+    * At the beginning of a new map (skip button time)
 
 # Installing
 1. Download the zip file of the [latest release](https://github.com/ceilingwaffle/Focusu/releases/tag/0.1.1).
