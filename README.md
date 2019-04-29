@@ -25,6 +25,9 @@ Automatic Controls  | Manual Controls
 Enables automatic blanking. Choose this option if you want the program to decide when to blank/un-blank, defined by the options you set below. | Disables automatic blanking. Choose this option if you want to always hide or always show the contents of your secondary monitors at your discretion.
 ![](https://i.imgur.com/wvbkXI0.png) | ![](https://i.imgur.com/73mwPJT.png)
 
+# Known Issues
+- Blank/un-blank flashing really quickly during some rare moments, such as map breaks placed close together (seizure warning, yikes!)
+
 # Planned Features
 - Pause Streamlabs/Stream Elements alerts until the current map ends.
 - Disable/enable individual monitors from blanking (for those true-gamer triple monitor beasts out there).
