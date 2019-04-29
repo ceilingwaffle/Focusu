@@ -35,9 +35,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\dvpf\DVPF.Core\DVPF.Core.csproj" />
-    <ProjectReference Include="..\..\osu-state-presenter\OsuStatePresenter\OsuStatePresenter.csproj" />
+    <ProjectReference Include="..\..\DependentValuePresentationFramework\DVPF.Core\DVPF.Core.csproj" />
+    <ProjectReference Include="..\..\OsuStatePresenter\OsuStatePresenter\OsuStatePresenter.csproj" />
   </ItemGroup>
+
+  <!--<Target Name="BuildOtherProjects">
+    <MSBuild Projects="@(ProjectReference)" Targets="Build">
+      <Output TaskParameter="TargetOutputs" ItemName="AssembliesBuiltByChildProjects" />
+    </MSBuild>
+  </Target>-->
 
   <ItemGroup>
     <Resource Include="resources\images\small\Monitor_black.png" />
