@@ -16,6 +16,7 @@
             InitializeComponent();
 
             Bindings bindings = (Bindings)this.FindResource("bindingsDataSource");
+
             this.controller = new Controller(bindings);
 
             //bindings.ControlMethod = Options.ControlMethod.Automatic;

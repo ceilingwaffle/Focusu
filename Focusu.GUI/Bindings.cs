@@ -4,8 +4,12 @@
     using System;
     using System.ComponentModel;
 
+    using Config.Net;
+
     public class Bindings : INotifyPropertyChanged
     {
+        private IAppSettings settings;
+
         // state (UI cannot modify these)
         private OsuStatus osuStatus = OsuStatus.NotRunning;
         private bool isBlanked = false;
@@ -13,15 +17,23 @@
         // controls/settings
         private TimeSpan fadeTiming = TimeSpan.FromMilliseconds(0);
         private MonitorStatus monitorStatus = MonitorStatus.Unblanked;
-        private ControlMethod controlMethod = ControlMethod.Automatic;
-        private ManualControlType manualControlType = ManualControlType.AlwaysShow;
-        private bool unblankForMapBreak = true;
-        private bool unblankForSongPaused = true;
-        private bool unblankForMapStart = true;
+        private ControlMethod controlMethod;
+        private ManualControlType manualControlType;
+        private bool unblankForMapBreak;
+        private bool unblankForSongPaused;
+        private bool unblankForMapStart;
 
         public Bindings()
         {
+            this.settings = new ConfigurationBuilder<IAppSettings>()
+                .UseIniFile("Focusu.config.ini")
+                .Build();
 
+            this.controlMethod = this.settings.ControlMethod;
+            this.manualControlType = this.settings.ManualControlType;
+            this.unblankForMapBreak = this.settings.UnblankForMapBreak;
+            this.unblankForSongPaused = this.settings.UnblankForSongPaused;
+            this.unblankForMapStart = this.settings.UnblankForMapStart;
         }
 
         public TimeSpan FadeTiming
@@ -67,12 +79,13 @@
         {
             get
             {
-                return controlMethod;
+                return this.controlMethod;
             }
             set
             {
-                controlMethod = value;
-                OnPropertyChanged("ControlMethod");
+                this.controlMethod = value;
+                this.settings.ControlMethod = value;
+                this.OnPropertyChanged("ControlMethod");
             }
         }
 
@@ -80,12 +93,13 @@
         {
             get
             {
-                return manualControlType;
+                return this.manualControlType;
             }
             set
             {
-                manualControlType = value;
-                OnPropertyChanged("ManualControlType");
+                this.manualControlType = value;
+                this.settings.ManualControlType = value;
+                this.OnPropertyChanged("ManualControlType");
             }
         }
 
@@ -93,12 +107,13 @@
         {
             get
             {
-                return unblankForMapBreak;
+                return this.unblankForMapBreak;
             }
             set
             {
-                unblankForMapBreak = value;
-                OnPropertyChanged("UnblankForMapBreak");
+                this.unblankForMapBreak = value;
+                this.settings.UnblankForMapBreak = value;
+                this.OnPropertyChanged("UnblankForMapBreak");
             }
         }
 
@@ -106,12 +121,13 @@
         {
             get
             {
-                return unblankForSongPaused;
+                return this.unblankForSongPaused;
             }
             set
             {
-                unblankForSongPaused = value;
-                OnPropertyChanged("UnblankForSongPaused");
+                this.unblankForSongPaused = value;
+                this.settings.UnblankForSongPaused = value;
+                this.OnPropertyChanged("UnblankForSongPaused");
             }
         }
 
@@ -119,12 +135,12 @@
         {
             get
             {
-                return isBlanked;
+                return this.isBlanked;
             }
             set
             {
-                isBlanked = value;
-                OnPropertyChanged("IsBlanked");
+                this.isBlanked = value;
+                this.OnPropertyChanged("IsBlanked");
             }
         }
 
@@ -132,12 +148,13 @@
         {
             get
             {
-                return unblankForMapStart;
+                return this.unblankForMapStart;
             }
             set
             {
-                unblankForMapStart = value;
-                OnPropertyChanged("UnblankForMapStart");
+                this.unblankForMapStart = value;
+                this.settings.UnblankForMapStart = value;
+                this.OnPropertyChanged("UnblankForMapStart");
             }
         }
 

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Focusu.GUI": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}
