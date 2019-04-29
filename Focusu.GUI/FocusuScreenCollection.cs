@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GUI
+namespace Focusu.GUI
 {
     public class FocusuScreenCollection : ObservableCollection<FocusuScreen>
     {

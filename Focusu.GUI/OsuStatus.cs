@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace Focusu.GUI
 {
     //using OsuMemoryDataProvider;
 

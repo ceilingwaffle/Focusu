@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Windows.Forms;
 
-namespace GUI
+namespace Focusu.GUI
 {
     public class ScreenBlanker
     {

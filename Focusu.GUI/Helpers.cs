@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace Focusu.GUI
 {
     using System;
     using System.ComponentModel;

@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace Focusu.GUI
 {
     using System.Windows;
 
@@ -7,6 +7,8 @@
     using System;
     using System.Diagnostics;
     using System.Windows.Forms;
+
+    using Focusu.GUI;
 
     /// <inheritdoc />
     /// <summary>
@@ -22,8 +24,8 @@
         {
             this.dataBindings = dataBindings;
             this.screenBlanker = new ScreenBlanker(this.CollectScreens());
-            osuStatePresenter = new OsuPresenter(HandleOsuGameStateCreated);
-            this.SetupOsuStatePresenter(osuStatePresenter);
+            this.osuStatePresenter = new OsuPresenter(HandleOsuGameStateCreated);
+            this.SetupOsuStatePresenter(this.osuStatePresenter);
         }
 
         private void SetupOsuStatePresenter(OsuPresenter osuPresenter)

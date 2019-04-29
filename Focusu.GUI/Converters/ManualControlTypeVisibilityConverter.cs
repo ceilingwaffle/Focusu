@@ -1,9 +1,9 @@
-﻿using GUI.Options;
+﻿using Focusu.GUI.Options;
 using System;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace GUI.Converters
+namespace Focusu.GUI.Converters
 {
     [ValueConversion(typeof(ControlMethod), typeof(bool))]
     public class ManualControlTypeBooleanConverter : IValueConverter

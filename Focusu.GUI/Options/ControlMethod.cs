@@ -1,4 +1,4 @@
-﻿namespace GUI.Options
+﻿namespace Focusu.GUI.Options
 {
     public enum ControlMethod
     {
