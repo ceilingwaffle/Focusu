@@ -1,3 +1,4 @@
+![](https://i.imgur.com/ksvOhLG.png)
 # Focusu!
 
 A tool for osu! streamers to reduce distractions while you play, letting you focus solely on the game, instead of that sudden elevator of PogChamps and BTTV gifs flooding the corner of your eye.
@@ -32,6 +33,7 @@ Enables automatic blanking. Choose this option if you want the program to decide
 - Pause Streamlabs/Stream Elements alerts until the current map ends.
 - Disable/enable individual monitors from blanking (for those true-gamer triple monitor beasts out there).
 - Block a custom rectangular subset of a screen (may be useful for those that play in windowed mode).
+- Fade the blanking in and out smoothly over some customisable time period, instead of immediately 100% black.
 
 [//]: # (https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
 
@@ -39,6 +41,7 @@ Enables automatic blanking. Choose this option if you want the program to decide
 
 # Acknowledgments
 - [Piotrekol](https://github.com/Piotrekol) for the awesome open source C# osu memory scanner (made my life 100x easier). 
+- w1ll and Herobrine for their nifty logo creations.
 - Anyone in my Twitch chat who helped me with C# or just  stopped by to say hi and keep me company while building this! <3
 
 # Need help?
