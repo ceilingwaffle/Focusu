@@ -6,13 +6,13 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>resources\focusu_icon_w1ll_v1.ico</ApplicationIcon>
     <StartupObject>GUI.App</StartupObject>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Authors>ceilingwaffle</Authors>
     <Product></Product>
     <Company />
     <Copyright>ceilingwaffle 2019</Copyright>
-    <AssemblyVersion>0.0.1.0</AssemblyVersion>
-    <FileVersion>0.0.1.0</FileVersion>
+    <AssemblyVersion>0.0.1.1</AssemblyVersion>
+    <FileVersion>0.1.1.1</FileVersion>
     <RepositoryUrl>https://github.com/ceilingwaffle/Focusu</RepositoryUrl>
   </PropertyGroup>
 
