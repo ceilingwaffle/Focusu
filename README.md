@@ -28,3 +28,6 @@ Enables automatic blanking. Choose this option if you want the program to decide
 [//]: # (https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
 
 [//]: # (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+# Need help?
+Hit me up in the #focusu-help channel in our [Discord server.](https://discordapp.com/invite/CmjtS6W)
