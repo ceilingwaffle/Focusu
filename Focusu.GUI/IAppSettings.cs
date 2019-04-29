@@ -22,7 +22,7 @@ namespace Focusu.GUI
         [Option(DefaultValue = true)]
         bool UnblankForSongPaused { get; set; }
 
-        [Option(DefaultValue = false)]
+        [Option(DefaultValue = true)]
         bool UnblankForMapStart { get; set; }
 
     }
