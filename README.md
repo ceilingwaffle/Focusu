@@ -14,7 +14,7 @@ This is primarily aimed at osu! livestreamers, but if you use a second monitor t
     * At the beginning of a new map (skip button time)
 
 # Installing
-1. Download the zip file of the [latest release](https://github.com/ceilingwaffle/Focusu/releases/tag/0.1.1).
+1. Download the zip file of the [latest release](https://github.com/ceilingwaffle/Focusu/releases/latest).
 2. Extract the zip file contents to a new folder.
 3. Run **Focusu.GUI.exe**
 4. If you encounter a "Windows protected your PC" message:
