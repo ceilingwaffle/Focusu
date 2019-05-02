@@ -11,20 +11,28 @@
     <Product></Product>
     <Company />
     <Copyright>ceilingwaffle 2019</Copyright>
-    <AssemblyVersion>0.0.2.0</AssemblyVersion>
-    <FileVersion>0.0.2.0</FileVersion>
+    <!--<AssemblyVersion>0.0.2.0</AssemblyVersion>
+    <FileVersion>0.0.2.0</FileVersion>-->
     <RepositoryUrl>https://github.com/ceilingwaffle/Focusu</RepositoryUrl>
+    <Platforms>AnyCPU;x86</Platforms>
+    <RuntimeIdentifiers>win-x86</RuntimeIdentifiers>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <PackageId>Focusu</PackageId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>x86</PlatformTarget>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <PlatformTarget>x86</PlatformTarget>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\Release</OutputPath>
     <DocumentationFile></DocumentationFile>
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
@@ -36,18 +44,13 @@
 
   <ItemGroup>
     <PackageReference Include="Config.Net" Version="4.13.7" />
+    <PackageReference Include="ppy.squirrel.windows" Version="1.9.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\DependentValuePresentationFramework\DVPF.Core\DVPF.Core.csproj" />
     <ProjectReference Include="..\..\OsuStatePresenter\OsuStatePresenter\OsuStatePresenter.csproj" />
   </ItemGroup>
-
-  <!--<Target Name="BuildOtherProjects">
-    <MSBuild Projects="@(ProjectReference)" Targets="Build">
-      <Output TaskParameter="TargetOutputs" ItemName="AssembliesBuiltByChildProjects" />
-    </MSBuild>
-  </Target>-->
 
   <ItemGroup>
     <Resource Include="resources\images\small\Monitor_black.png" />
@@ -68,5 +71,18 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="xcopy /Y $(ProjectDir)..\tools\Squirrel\Update.exe $(TargetDir)..\" />
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Release'">
+    <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+      <Output TaskParameter="Assemblies" ItemName="myAssemblyInfo" />
+    </GetAssemblyIdentity>
+    <Exec Command="dotnet publish $(ProjectPath) --self-contained --runtime win-x86 --configuration Release /p:PublishProfile=Properties\PublishProfiles\FolderProfile.pubxml 2&gt;&gt; builderrors.txt" />
+    <Exec Command="nuget pack $(SolutionName).nuspec -Version %(myAssemblyInfo.Version) -Properties Configuration=Release -OutputDirectory $(SolutionDir) -BasePath $(TargetDir)win-x86\publish 2&gt;&gt; builderrors.txt" />
+    <Exec Command="squirrel --releasify $(SolutionDir)$(SolutionName).$([System.Version]::Parse(%(myAssemblyInfo.Version)).ToString(3)).nupkg 2&gt;&gt; builderrors.txt" />
+  </Target>
 
 </Project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Focusu</id>
+    <!-- version will be replaced by MSBuild -->
+    <version>0.0.0.0</version>
+    <title>Focusu</title>
+    <authors>ceilingwaffle</authors>
+    <description>Reduces distractions for osu! live streamers by blanking out secondary monitors while you play. </description>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright ceilingwaffle 2017</copyright>
+    <dependencies />
+  </metadata>
+  <files>
+    <file src="*.*" target="lib\net45\" exclude="*.pdb;*.nupkg;*.vshost.*"/>
+  </files>
+</package>

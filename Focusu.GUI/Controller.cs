@@ -24,6 +24,10 @@
         {
             this.dataBindings = dataBindings;
             this.screenBlanker = new ScreenBlanker(this.CollectScreens());
+
+            var UpdateManager = new AppUpdater();
+            UpdateManager.CheckForUpdates();
+
             this.osuStatePresenter = new OsuPresenter(HandleOsuGameStateCreated);
             this.SetupOsuStatePresenter(this.osuStatePresenter);
         }
