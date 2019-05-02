@@ -80,7 +80,7 @@
     <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
       <Output TaskParameter="Assemblies" ItemName="myAssemblyInfo" />
     </GetAssemblyIdentity>
-    <Exec Command="dotnet publish $(ProjectPath) --self-contained --runtime win-x86 --configuration Release /p:PublishProfile=Properties\PublishProfiles\FolderProfile.pubxml 2&gt;&gt; builderrors.txt" />
+    <Exec Command="dotnet publish $(ProjectPath) --self-contained --runtime win-x86 --configuration Release /p:PublishProfile=Properties\PublishProfiles\FolderProfile.pubxml 2&gt; builderrors.txt" />
     <Exec Command="nuget pack $(SolutionName).nuspec -Version %(myAssemblyInfo.Version) -Properties Configuration=Release -OutputDirectory $(SolutionDir) -BasePath $(TargetDir)win-x86\publish 2&gt;&gt; builderrors.txt" />
     <Exec Command="squirrel --releasify $(SolutionDir)$(SolutionName).$([System.Version]::Parse(%(myAssemblyInfo.Version)).ToString(3)).nupkg 2&gt;&gt; builderrors.txt" />
   </Target>

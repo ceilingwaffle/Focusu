@@ -5,10 +5,10 @@
     <!-- version will be replaced by MSBuild -->
     <version>0.0.0.0</version>
     <title>Focusu</title>
-    <authors>ceilingwaffle</authors>
-    <description>Reduces distractions for osu! live streamers by blanking out secondary monitors while you play. </description>
+    <authors>CeilingWaffle</authors>
+    <description></description>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <copyright>Copyright ceilingwaffle 2017</copyright>
+    <copyright></copyright>
     <dependencies />
   </metadata>
   <files>
