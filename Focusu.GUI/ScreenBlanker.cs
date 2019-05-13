@@ -3,7 +3,9 @@ using System.Windows.Forms;
 
 namespace Focusu.GUI
 {
-    public class ScreenBlanker
+    using System;
+
+    public class ScreenBlanker : IFocusBehaviour
     {
         private readonly FocusuScreenCollection screens;
 
@@ -96,6 +98,16 @@ namespace Focusu.GUI
             bool wasUnblanked = true;
             screen.IsBlanked = !wasUnblanked;
             return wasUnblanked;
+        }
+
+        public bool Focus(EventArgs focusEventArgs = null)
+        {
+            return this.BlankEnabledSecondaryScreens();
+        }
+
+        public bool Unfocus(EventArgs unfocusEventArgs = null)
+        {
+            return this.UnblankAllSecondaryScreens();
         }
     }
 }

@@ -18,7 +18,7 @@
     {
         protected readonly OsuPresenter osuStatePresenter;
         protected readonly Bindings dataBindings;
-        protected readonly ScreenBlanker screenBlanker;
+        protected readonly IFocusBehaviour screenBlanker;
 
         public Controller(Bindings dataBindings)
         {
@@ -137,12 +137,12 @@
 
         private void DoUnblanking()
         {
-            this.dataBindings.IsBlanked = !this.screenBlanker.UnblankAllSecondaryScreens();
+            this.dataBindings.IsBlanked = !this.screenBlanker.Unfocus(unfocusEventArgs: null);
         }
 
         private void DoBlanking()
         {
-            this.dataBindings.IsBlanked = this.screenBlanker.BlankEnabledSecondaryScreens();
+            this.dataBindings.IsBlanked = this.screenBlanker.Focus(focusEventArgs: null);
         }
 
         private bool ShouldAutomaticallyBlankNow(OsuStatus osuStatus)
