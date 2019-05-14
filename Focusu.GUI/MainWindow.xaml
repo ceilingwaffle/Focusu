@@ -22,6 +22,7 @@
         <converters:ControlMethodVisibilityConverter x:Key="controlMethodVisibilityConverter" />
         <converters:ManualControlTypeBooleanConverter x:Key="manualControlTypeBooleanConverter" />
         <converters:OsuStatusStringConverter x:Key="osuStatusStringConverter" />
+        <converters:BooleanVisibilityConverter x:Key="booleanVisibilityConverter" />
         <System:Double x:Key="ButtonWidth">100</System:Double>
         <Thickness x:Key="HorizontalElementMargin">0,0,10,0</Thickness>
         <Thickness x:Key="MonitorStatusMargin">0,0,10,0</Thickness>
@@ -288,6 +289,55 @@
                           Foreground="{DynamicResource ElementColor}"
                           Height="{DynamicResource CheckboxHeight}"
                           IsChecked="{Binding Source={StaticResource bindingsDataSource}, Path=UnblankForMapStart}" />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="GroupBox_StreamAlertsConfig"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Width="345"
+                  Header="Stream Alerts Configuration:"
+                  Margin="10,10,10,10"
+                  Visibility="Visible">
+            <GroupBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
+            </GroupBox.Foreground>
+            <StackPanel Orientation="Vertical"
+                        Margin="10"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                <CheckBox x:Name="AppState_CheckBox_StreamlabsEnabled"
+                          Content="Automatically Pause/Unpause Streamlabs Alerts"
+                          Margin="{DynamicResource HorizontalElementMargin}"
+                          Foreground="{DynamicResource ElementColor}"
+                          Height="{DynamicResource CheckboxHeight}"
+                          Visibility="Visible"
+                          IsChecked="{Binding Source={StaticResource bindingsDataSource}, Path=StreamlabsEnabled}" />
+                <StackPanel Orientation="Horizontal"
+                            Margin="0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Visibility="{Binding Source={StaticResource bindingsDataSource}, Converter={StaticResource booleanVisibilityConverter}, Path=StreamlabsEnabled}">
+                    <Label x:Name="Label_StreamlabsApiKey"
+                                   Content="Streamlabs API Key:"
+                                   HorizontalAlignment="Left"
+                                   Margin="0,0,0,0"
+                                   VerticalAlignment="Top"
+                                   Background="{x:Null}">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
+                        </Label.Foreground>
+                    </Label>
+                    <TextBox x:Name="AppState_TextBox_StreamlabsApiKey"
+                                     Width="200"
+                                     Margin="{DynamicResource HorizontalElementMargin}"
+                                     Visibility="Visible"
+                                     Height="{DynamicResource CheckboxHeight}"
+                                     Text="{Binding Source={StaticResource bindingsDataSource}, Path=StreamlabsApiKey}"
+                                     FontFamily="pack://application:,,,/Focusu.GUI;component/resources/fonts/#Password" 
+                                      />
+                    <!--MaxLength="200"-->
+                </StackPanel>
+
             </StackPanel>
         </GroupBox>
     </StackPanel>

@@ -1,4 +1,5 @@
 ﻿using Focusu.GUI.Screen;
+using Focusu.GUI.StreamAlerts;
 
 namespace Focusu.GUI
 {
@@ -21,11 +22,13 @@ namespace Focusu.GUI
         protected readonly OsuPresenter osuStatePresenter;
         protected readonly Bindings dataBindings;
         protected readonly IFocusBehaviour screenBlanker;
+        protected readonly IFocusBehaviour streamlabs;
 
         public Controller(Bindings dataBindings)
         {
             this.dataBindings = dataBindings;
             this.screenBlanker = new ScreenBlanker(this.CollectScreens());
+            this.streamlabs = new StreamLabs(apiKey: dataBindings.StreamlabsApiKey);
 
             this.osuStatePresenter = new OsuPresenter(HandleOsuGameStateCreated);
             this.SetupOsuStatePresenter(this.osuStatePresenter);
@@ -88,7 +91,7 @@ namespace Focusu.GUI
             Debug.WriteLine($"\n{newState.ToString()}");
 
             // handle automatic controls
-            if (IsAutomaticalControls())
+            if (IsAutomaticControls())
             {
                 if (ShouldAutomaticallyBlankNow(this.dataBindings.OsuStatus))
                 {
@@ -113,7 +116,7 @@ namespace Focusu.GUI
             }
         }
 
-        private bool IsAutomaticalControls()
+        private bool IsAutomaticControls()
         {
             return this.dataBindings.ControlMethod == Options.ControlMethod.Automatic;
         }
@@ -140,31 +143,27 @@ namespace Focusu.GUI
         private void DoUnblanking()
         {
             this.dataBindings.IsBlanked = !this.screenBlanker.Unfocus(unfocusEventArgs: null);
+            this.streamlabs.Unfocus(unfocusEventArgs: null);
         }
 
         private void DoBlanking()
         {
             this.dataBindings.IsBlanked = this.screenBlanker.Focus(focusEventArgs: null);
+            this.streamlabs.Focus(focusEventArgs: null);
         }
 
         private bool ShouldAutomaticallyBlankNow(OsuStatus osuStatus)
         {
-            if (osuStatus == OsuStatus.SongPaused && !this.dataBindings.UnblankForSongPaused)
+            // ReSharper disable once SwitchStatementMissingSomeCases
+            switch (osuStatus)
             {
-                return true;
+                case OsuStatus.SongPaused when !this.dataBindings.UnblankForSongPaused:
+                case OsuStatus.InMapBreak when !this.dataBindings.UnblankForMapBreak:
+                case OsuStatus.Playing:
+                    return true;
+                default:
+                    return false;
             }
-
-            if (osuStatus == OsuStatus.InMapBreak && !this.dataBindings.UnblankForMapBreak)
-            {
-                return true;
-            }
-
-            if (osuStatus == OsuStatus.Playing)
-            {
-                return true;
-            }
-
-            return false;
         }
 
         private OsuStatus GetOsuStatusFromGameState(State newState)
@@ -214,13 +213,8 @@ namespace Focusu.GUI
                 return OsuStatus.Unknown;
             }
 
-            // try to get the enum property name as a string
-            if (!Enum.TryParse(status, true, out OsuStatus osuStatus))
-            {
-                return OsuStatus.Unknown;
-            }
-
-            return osuStatus;
+            // try to get the enum property name as a stringX:\C\projects\Focusu\Focusu.GUI\Converters\BooleanVisibilityConverter.cs
+            return !Enum.TryParse(status, ignoreCase: true, out OsuStatus osuStatus) ? OsuStatus.Unknown : osuStatus;
         }
 
         private bool TryCastOsuStateProperty<T>(State state, string statePropName, out T result)

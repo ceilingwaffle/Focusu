@@ -22,6 +22,8 @@
         private bool unblankForMapBreak;
         private bool unblankForSongPaused;
         private bool unblankForMapStart;
+        private bool streamlabsEnabled;
+        private string streamlabsApiKey;
 
         public Bindings()
         {
@@ -34,6 +36,8 @@
             this.unblankForMapBreak = this.settings.UnblankForMapBreak;
             this.unblankForSongPaused = this.settings.UnblankForSongPaused;
             this.unblankForMapStart = this.settings.UnblankForMapStart;
+            this.streamlabsEnabled = this.settings.StreamlabsEnabled;
+            this.streamlabsApiKey = this.settings.StreamlabsApiKey;
         }
 
         public TimeSpan FadeTiming
@@ -155,6 +159,34 @@
                 this.unblankForMapStart = value;
                 this.settings.UnblankForMapStart = value;
                 this.OnPropertyChanged("UnblankForMapStart");
+            }
+        }
+
+        public bool StreamlabsEnabled
+        {
+            get
+            {
+                return this.streamlabsEnabled;
+            }
+            set
+            {
+                this.streamlabsEnabled = value;
+                this.settings.StreamlabsEnabled = value;
+                this.OnPropertyChanged("StreamlabsEnabled");
+            }
+        }
+
+        public string StreamlabsApiKey
+        {
+            get
+            {
+                return this.streamlabsApiKey;
+            }
+            set
+            {
+                this.streamlabsApiKey = value;
+                this.settings.StreamlabsApiKey = value;
+                this.OnPropertyChanged("StreamlabsApiKey");
             }
         }
 

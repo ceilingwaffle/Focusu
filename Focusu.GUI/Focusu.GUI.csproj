@@ -36,6 +36,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="resources\fonts\password.ttf" />
     <None Remove="resources\images\small\Monitor_black.png" />
     <None Remove="resources\images\small\Monitor_white.png" />
   </ItemGroup>
@@ -50,6 +51,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="resources\fonts\password.ttf" />
     <Resource Include="resources\images\small\Monitor_black.png" />
     <Resource Include="resources\images\small\Monitor_white.png" />
   </ItemGroup>

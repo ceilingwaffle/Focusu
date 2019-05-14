@@ -25,5 +25,11 @@ namespace Focusu.GUI
         [Option(DefaultValue = true)]
         bool UnblankForMapStart { get; set; }
 
+        [Option(DefaultValue = false)]
+        bool StreamlabsEnabled { get; set; }
+
+        [Option(DefaultValue = "")]
+        string StreamlabsApiKey { get; set; }
+
     }
 }
