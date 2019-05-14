@@ -11,7 +11,7 @@ namespace Focusu.GUI
     /// <summary>
     /// Associates the "monitor blanked" status with a reason for being blanked/unblanked. See: <see cref="Helpers.GetDescription"/>
     /// </summary>
-    public enum MonitorStatusReason
+    public enum FocusStatusReason
     {
         // controls
         [Description("Manual controls enabled.")]

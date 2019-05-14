@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
-using System.Threading;
-
-namespace Focusu.GUI
+﻿namespace Focusu.GUI.Screen
 {
     public class FocusuScreen
     {
-        public FocusuScreen(Screen screen)
+        public FocusuScreen(System.Windows.Forms.Screen screen)
         {
             Screen = screen;
             BlankerForm = new ScreenBlankerForm(screen);
         }
 
-        public Screen Screen { get; }
+        public System.Windows.Forms.Screen Screen { get; }
 
         public ScreenBlankerForm BlankerForm { get; }
 

@@ -1,10 +1,8 @@
-﻿using System.Threading;
-using System.Windows.Forms;
+﻿using System;
+using System.Threading;
 
-namespace Focusu.GUI
+namespace Focusu.GUI.Screen
 {
-    using System;
-
     public class ScreenBlanker : IFocusBehaviour
     {
         private readonly FocusuScreenCollection screens;

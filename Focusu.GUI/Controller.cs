@@ -1,4 +1,6 @@
-﻿namespace Focusu.GUI
+﻿using Focusu.GUI.Screen;
+
+namespace Focusu.GUI
 {
     using System.Windows;
 
@@ -8,7 +10,7 @@
     using System.Diagnostics;
     using System.Windows.Forms;
 
-    using Focusu.GUI;
+    using Focusu.GUI.Screen;
 
     /// <inheritdoc />
     /// <summary>
@@ -60,7 +62,7 @@
         {
             var focusuScreenCollection = new FocusuScreenCollection();
 
-            foreach (var screen in Screen.AllScreens)
+            foreach (var screen in System.Windows.Forms.Screen.AllScreens)
             {
                 var focusuScreen = new FocusuScreen(screen);
 

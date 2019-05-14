@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 
-namespace Focusu.GUI
+namespace Focusu.GUI.Screen
 {
     public class ScreenBlankerForm : Form
     {
@@ -25,9 +22,9 @@ namespace Focusu.GUI
             }
         }
 
-        public Screen TargetScreen { get; }
+        public System.Windows.Forms.Screen TargetScreen { get; }
 
-        public ScreenBlankerForm(Screen targetScreen)
+        public ScreenBlankerForm(System.Windows.Forms.Screen targetScreen)
         {
             InitializeComponent();
 

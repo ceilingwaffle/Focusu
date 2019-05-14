@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
-using System.Windows.Forms;
 
-namespace Focusu.GUI
+namespace Focusu.GUI.Screen
 {
     public class FocusuScreenCollection : ObservableCollection<FocusuScreen>
     {
