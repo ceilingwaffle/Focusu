@@ -22,13 +22,13 @@ namespace Focusu.GUI
         protected readonly OsuPresenter osuStatePresenter;
         protected readonly Bindings dataBindings;
         protected readonly IFocusBehaviour screenBlanker;
-        protected readonly IFocusBehaviour streamlabs;
+        // protected readonly IFocusBehaviour streamlabs;
 
         public Controller(Bindings dataBindings)
         {
             this.dataBindings = dataBindings;
             this.screenBlanker = new ScreenBlanker(this.CollectScreens());
-            this.streamlabs = new StreamLabs(apiKey: dataBindings.StreamlabsApiKey);
+            // this.streamlabs = new StreamLabs();
 
             this.osuStatePresenter = new OsuPresenter(HandleOsuGameStateCreated);
             this.SetupOsuStatePresenter(this.osuStatePresenter);
@@ -143,13 +143,13 @@ namespace Focusu.GUI
         private void DoUnblanking()
         {
             this.dataBindings.IsBlanked = !this.screenBlanker.Unfocus(unfocusEventArgs: null);
-            this.streamlabs.Unfocus(unfocusEventArgs: null);
+            // this.streamlabs.Unfocus(unfocusEventArgs: null);
         }
 
         private void DoBlanking()
         {
             this.dataBindings.IsBlanked = this.screenBlanker.Focus(focusEventArgs: null);
-            this.streamlabs.Focus(focusEventArgs: null);
+            // this.streamlabs.Focus(focusEventArgs: null);
         }
 
         private bool ShouldAutomaticallyBlankNow(OsuStatus osuStatus)
@@ -213,7 +213,7 @@ namespace Focusu.GUI
                 return OsuStatus.Unknown;
             }
 
-            // try to get the enum property name as a stringX:\C\projects\Focusu\Focusu.GUI\Converters\BooleanVisibilityConverter.cs
+            // try to get the enum property name as a string
             return !Enum.TryParse(status, ignoreCase: true, out OsuStatus osuStatus) ? OsuStatus.Unknown : osuStatus;
         }
 

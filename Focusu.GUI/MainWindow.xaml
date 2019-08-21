@@ -297,7 +297,7 @@
                   Width="345"
                   Header="Stream Alerts Configuration:"
                   Margin="10,10,10,10"
-                  Visibility="Visible">
+                  Visibility="Collapsed">
             <GroupBox.Foreground>
                 <SolidColorBrush Color="{DynamicResource ElementTitleColor}" />
             </GroupBox.Foreground>
