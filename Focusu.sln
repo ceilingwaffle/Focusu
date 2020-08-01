@@ -11,10 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DVPF.Core", "..\DependentVa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OsuStatePresenter", "..\OsuStatePresenter\OsuStatePresenter\OsuStatePresenter.csproj", "{4ED44B13-BB8E-40AD-A486-EA7CEA6C9297}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessMemoryDataFinder", "..\submodules\ProcessMemoryDataFinder\ProcessMemoryDataFinder\ProcessMemoryDataFinder.csproj", "{9960D641-300A-432C-AA04-C351A99B9ADB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsuMemoryDataProvider", "..\submodules\ProcessMemoryDataFinder\OsuMemoryDataProvider\OsuMemoryDataProvider.csproj", "{D117800F-072D-4AE4-9679-3E2A129A1A3C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oppai.w.Net", "..\submodules\Oppai.w.Net\Oppai.w.Net\Oppai.w.Net.csproj", "{D02CC1ED-E1E8-4553-8942-0A1A855BEDB8}"
 EndProject
 Global
