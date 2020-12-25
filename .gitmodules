@@ -4,6 +4,3 @@
 [submodule "submodules/OsuStatePresenter"]
 	path = submodules/OsuStatePresenter
 	url = git@github.com:ceilingwaffle/OsuStatePresenter.git
-[submodule "submodules/ProcessMemoryDataFinder"]
-	path = submodules/ProcessMemoryDataFinder
-	url = git@github.com:Piotrekol/ProcessMemoryDataFinder.git
