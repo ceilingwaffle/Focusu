@@ -88,7 +88,7 @@ namespace Focusu.GUI
         {
             this.dataBindings.OsuStatus = this.GetOsuStatusFromGameState(newState);
 
-            Debug.WriteLine($"\n{newState.ToString()}");
+            //Debug.WriteLine($"\n{newState.ToString()}");
 
             // handle automatic controls
             if (IsAutomaticControls())
@@ -159,6 +159,7 @@ namespace Focusu.GUI
             {
                 case OsuStatus.SongPaused when !this.dataBindings.UnblankForSongPaused:
                 case OsuStatus.InMapBreak when !this.dataBindings.UnblankForMapBreak:
+                case OsuStatus.MapStart when !this.dataBindings.UnblankForMapStart:
                 case OsuStatus.Playing:
                     return true;
                 default:
