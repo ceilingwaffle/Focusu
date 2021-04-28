@@ -2,6 +2,7 @@
 using System;
 using System.Globalization;
 using System.Windows.Data;
+using OsuStatePresenter;
 
 namespace Focusu.GUI.Converters
 {

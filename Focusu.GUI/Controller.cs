@@ -40,8 +40,8 @@ namespace Focusu.GUI
             osuPresenter.TryGetNode(typeof(OsuStatePresenter.Nodes.BpmNode), out Node bpmNode);
             bpmNode.DisablePresentation();
 
-            osuPresenter.TryGetNode(typeof(OsuStatePresenter.Nodes.ModsNode), out Node modeNode);
-            modeNode.DisablePresentation();
+            osuPresenter.TryGetNode(typeof(OsuStatePresenter.Nodes.ModsNode), out Node modsNode);
+            modsNode.DisablePresentation();
 
             osuPresenter.TryGetNode(typeof(OsuStatePresenter.Nodes.PPNode), out Node ppNode);
             ppNode.DisablePresentation();
@@ -86,7 +86,9 @@ namespace Focusu.GUI
 
         private void ProcessOsuGameState(State newState)
         {
-            this.dataBindings.OsuStatus = this.GetOsuStatusFromGameState(newState);
+            this.osuStatePresenter.TryGetNode(typeof(OsuStatePresenter.Nodes.StatusNode), out Node statusNode);
+
+            this.dataBindings.OsuStatus = (OsuStatus)statusNode.GetValue();
 
             //Debug.WriteLine($"\n{newState.ToString()}");
 
@@ -167,78 +169,78 @@ namespace Focusu.GUI
             }
         }
 
-        private OsuStatus GetOsuStatusFromGameState(State newState)
-        {
-            if (!TryCastOsuStateProperty(newState, "GameStatus", out string status))
-            {
-                status = "Unknown";
-            }
+        //private OsuStatus GetOsuStatusFromGameState(State newState)
+        //{
+        //    if (!TryCastOsuStateProperty(newState, "GameStatus", out string status))
+        //    {
+        //        status = "Unknown";
+        //    }
 
-            if (!TryCastOsuStateProperty(newState, "SongIsPaused", out bool isPaused))
-            {
-                isPaused = false;
-            }
+        //    if (!TryCastOsuStateProperty(newState, "SongIsPaused", out bool isPaused))
+        //    {
+        //        isPaused = false;
+        //    }
 
-            if (!TryCastOsuStateProperty(newState, "IsMapBreak", out bool isMapBreak))
-            {
-                isMapBreak = false;
-            }
+        //    if (!TryCastOsuStateProperty(newState, "IsMapBreak", out bool isMapBreak))
+        //    {
+        //        isMapBreak = false;
+        //    }
 
-            if (!TryCastOsuStateProperty(newState, "IsMapStart", out bool isMapStart))
-            {
-                isMapStart = false;
-            }
+        //    if (!TryCastOsuStateProperty(newState, "IsMapStart", out bool isMapStart))
+        //    {
+        //        isMapStart = false;
+        //    }
 
-            if (isPaused == false && status.Equals("Unknown"))
-            {
-                return OsuStatus.Unknown;
-            }
+        //    if (isPaused == false && status.Equals("Unknown"))
+        //    {
+        //        return OsuStatus.Unknown;
+        //    }
 
-            if (isPaused == false && status.Equals("Playing") && isMapBreak == true)
-            {
-                return OsuStatus.InMapBreak;
-            }
+        //    if (isPaused == false && status.Equals("Playing") && isMapBreak == true)
+        //    {
+        //        return OsuStatus.InMapBreak;
+        //    }
 
-            if (status.Equals("Playing") && isPaused == true)
-            {
-                return OsuStatus.SongPaused;
-            }
+        //    if (status.Equals("Playing") && isPaused == true)
+        //    {
+        //        return OsuStatus.SongPaused;
+        //    }
 
-            if (status.Equals("Playing") && isMapStart == true)
-            {
-                return OsuStatus.MapStart;
-            }
+        //    if (status.Equals("Playing") && isMapStart == true)
+        //    {
+        //        return OsuStatus.MapStart;
+        //    }
 
-            if (status.Length < 1)
-            {
-                return OsuStatus.Unknown;
-            }
+        //    if (status.Length < 1)
+        //    {
+        //        return OsuStatus.Unknown;
+        //    }
 
-            // try to get the enum property name as a string
-            return !Enum.TryParse(status, ignoreCase: true, out OsuStatus osuStatus) ? OsuStatus.Unknown : osuStatus;
-        }
+        //    // try to get the enum property name as a string
+        //    return !Enum.TryParse(status, ignoreCase: true, out OsuStatus osuStatus) ? OsuStatus.Unknown : osuStatus;
+        //}
 
-        private bool TryCastOsuStateProperty<T>(State state, string statePropName, out T result)
-        {
-            try
-            {
-                object oResult = state[statePropName];
+        //private bool TryCastOsuStateProperty<T>(State state, string statePropName, out T result)
+        //{
+        //    try
+        //    {
+        //        object oResult = state[statePropName];
 
-                if (oResult != null)
-                {
-                    result = (T)oResult;
-                    return true;
-                }
+        //        if (oResult != null)
+        //        {
+        //            result = (T)oResult;
+        //            return true;
+        //        }
 
-            }
-            catch
-            {
-                Debug.WriteLine($"ERROR: Unable to cast {statePropName} to type {typeof(T).ToString()}");
-            }
+        //    }
+        //    catch
+        //    {
+        //        Debug.WriteLine($"ERROR: Unable to cast {statePropName} to type {typeof(T).ToString()}");
+        //    }
 
-            result = default;
-            return false;
-        }
+        //    result = default;
+        //    return false;
+        //}
 
     }
 }

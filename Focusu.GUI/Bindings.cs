@@ -5,6 +5,7 @@
     using System.ComponentModel;
 
     using Config.Net;
+    using OsuStatePresenter;
 
     public class Bindings : INotifyPropertyChanged
     {
