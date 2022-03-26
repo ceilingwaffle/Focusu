@@ -27,7 +27,7 @@ Enables automatic blanking. Choose this option if you want the program to decide
 ![](https://i.imgur.com/wvbkXI0.png) | ![](https://i.imgur.com/73mwPJT.png)
 
 # Known Issues
-- Blank/un-blank flashing really quickly during some rare moments, such as map breaks placed close together (seizure warning, yikes!)
+- Some functionality is known to break when osu! releases an update. This is due to some changes in memory signatures which requires an update to the memory reader dependency to fix.
 
 # Planned Features
 - Pause Streamlabs/Stream Elements alerts until the current map ends.
