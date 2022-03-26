@@ -6,6 +6,10 @@ namespace Focusu.GUI.Screen
 {
     public class ScreenBlankerForm : Form
     {
+        // Starting left position of the blank form.
+        // Initialised with some large value so we can later check if the form position has been set yet.
+        private int startLeftPos = int.MaxValue;
+
         // Shows the form as topmost without stealing focus: https://stackoverflow.com/a/25219414
         protected override bool ShowWithoutActivation
         {
@@ -72,6 +76,12 @@ namespace Focusu.GUI.Screen
             {
                 this.Visible = false;
                 this.ShowDialog();
+
+                // Workaround fix to secondary screens freezing their contents when unblanking
+                if (this.startLeftPos == int.MaxValue)
+                    this.startLeftPos = this.Left;
+
+                this.Left = this.startLeftPos;
             }
         }
 
@@ -88,6 +98,12 @@ namespace Focusu.GUI.Screen
             {
                 this.Visible = false;
                 this.Hide();
+
+                // Workaround fix to secondary screens freezing their contents when unblanking
+                if (this.startLeftPos == int.MaxValue)
+                    this.startLeftPos = this.Left;
+
+                this.Left = -16384;
             }
         }
     }

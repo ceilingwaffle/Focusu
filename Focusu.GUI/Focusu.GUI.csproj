@@ -50,6 +50,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\DependentValuePresentationFramework\DVPF.Core\DVPF.Core.csproj" />
     <ProjectReference Include="..\..\OsuStatePresenter\OsuStatePresenter\OsuStatePresenter.csproj" />
+    <ProjectReference Include="..\..\OsuStatePresenter\submodules\ProcessMemoryDataFinder\OsuMemoryDataProvider\OsuMemoryDataProvider.csproj" />
+    <ProjectReference Include="..\..\OsuStatePresenter\submodules\ProcessMemoryDataFinder\ProcessMemoryDataFinder\ProcessMemoryDataFinder.csproj" />
   </ItemGroup>
 
 
