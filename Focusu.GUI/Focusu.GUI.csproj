@@ -7,7 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>resources\focusu_icon_w1ll_v1.ico</ApplicationIcon>
     <StartupObject>Focusu.GUI.App</StartupObject>
-    <Version>0.2.0</Version>
+    <Version>0.2.10</Version>
     <Authors>ceilingwaffle</Authors>
     <Product></Product>
     <Company />
@@ -27,6 +27,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <OutputPath>bin\Debug</OutputPath>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -34,6 +35,7 @@
     <OutputPath>bin\Release</OutputPath>
     <DocumentationFile></DocumentationFile>
     <DefineConstants>TRACE</DefineConstants>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -48,10 +50,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DependentValuePresentationFramework\DVPF.Core\DVPF.Core.csproj" />
     <ProjectReference Include="..\..\OsuStatePresenter\OsuStatePresenter\OsuStatePresenter.csproj" />
-    <ProjectReference Include="..\..\OsuStatePresenter\submodules\ProcessMemoryDataFinder\OsuMemoryDataProvider\OsuMemoryDataProvider.csproj" />
-    <ProjectReference Include="..\..\OsuStatePresenter\submodules\ProcessMemoryDataFinder\ProcessMemoryDataFinder\ProcessMemoryDataFinder.csproj" />
   </ItemGroup>
 
 
@@ -76,4 +75,18 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <PropertyGroup>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+	<CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+	
 </Project>
+
